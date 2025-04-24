@@ -1,0 +1,12 @@
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\CloudSalon.DAL.dll.config
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\CloudSalon.DAL.dll
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\CloudSalon.DAL.pdb
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\CloudSalon.Model.dll
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\EntityFramework.dll
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\CloudSalon.Model.pdb
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\EntityFramework.xml
+E:\宝贝\集云美邦\CloudSalon\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\宝贝\集云美邦\CloudSalon\DAL\obj\Debug\CloudSalon.DAL.dll
+E:\宝贝\集云美邦\CloudSalon\DAL\obj\Debug\CloudSalon.DAL.pdb
+E:\宝贝\集云美邦\CloudSalon\DAL\obj\Debug\CloudSalon.DAL.csprojResolveAssemblyReference.cache

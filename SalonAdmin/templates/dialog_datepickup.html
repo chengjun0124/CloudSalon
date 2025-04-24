@@ -1,0 +1,50 @@
+<p class="header">请选择<span class="confirm" ng-click="confirm()">确定</span></p>
+<div class="date_roll_mask">
+    <div class="date_roll">
+        <div ng-show="dateType=='date'||dateType=='datetime'">
+            <div class="gear" ng-touchstart="gearTouchStart('YYYY')" ng-touchend="gearTouchEnd('YYYY')" ng-touchmove="gearTouchMove('YYYY')"
+                style="transform: translate3d(0px, -{{yearOffset}}em, 0px);">
+                <div class="tooth" ng-repeat="year in years">{{year}}</div>
+            </div>
+            <div class="date_grid">
+                <div>年</div>
+            </div>
+        </div>
+        <div ng-show="dateType=='date'||dateType=='datetime'">
+            <div class="gear" ng-touchstart="gearTouchStart('MM')" ng-touchend="gearTouchEnd('MM')" ng-touchmove="gearTouchMove('MM')"
+                style="transform: translate3d(0px, -{{monthOffset}}em, 0px);">
+                <div class="tooth" ng-repeat="month in months">{{month+1}}</div>
+            </div>
+            <div class="date_grid">
+                <div>月</div>
+            </div>
+        </div>
+        <div ng-show="dateType=='date'||dateType=='datetime'">
+            <div class="gear" ng-touchstart="gearTouchStart('dd')" ng-touchend="gearTouchEnd('dd')" ng-touchmove="gearTouchMove('dd')"
+                style="transform: translate3d(0px, -{{dateOffset}}em, 0px);">
+                <div class="tooth" ng-repeat="date in dates">{{date}}</div>
+            </div>
+            <div class="date_grid">
+                <div>日</div>
+            </div>
+        </div>
+        <div ng-show="dateType=='time'||dateType=='datetime'">
+            <div class="gear" ng-touchstart="gearTouchStart('hh')" ng-touchend="gearTouchEnd('hh')" ng-touchmove="gearTouchMove('hh')"
+                style="transform: translate3d(0px, -{{hourOffset}}em, 0px);">
+                <div class="tooth" ng-repeat="hour in hours">{{hour.toStringWithPrefix(2)}}</div>
+            </div>
+            <div class="date_grid">
+                <div ng-class="{'close':dateType=='time'}">时</div>
+            </div>
+        </div>
+        <div ng-show="dateType=='time'||dateType=='datetime'">
+            <div class="gear" ng-touchstart="gearTouchStart('mm')" ng-touchend="gearTouchEnd('mm')" ng-touchmove="gearTouchMove('mm')"
+                style="transform: translate3d(0px, -{{minuteOffset}}em, 0px);">
+                <div class="tooth" ng-repeat="minute in minutes">{{minute.toStringWithPrefix(2)}}</div>
+            </div>
+            <div class="date_grid">
+                <div ng-class="{'close':dateType=='time'}">分</div>
+            </div>
+        </div>
+    </div>
+</div>

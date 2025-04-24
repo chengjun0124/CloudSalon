@@ -1,0 +1,72 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="list big">
+    <ul>
+        <li upload-image cut-width="675" cut-height="450" recieve-image="receiveDataURL">
+            <div class="container padding">
+                <div class="col_3">形象照片</div>
+                <div class="col_9 ta_r">
+                    <img src="../imgs/arrow_to.png" />
+                </div>
+            </div>
+            <div class="ta_c">
+                <img class="shrink_450" ng-src="{{salonPicture|null:'imgs/no_pic675.jpg'}}">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">店铺名称</div>
+            <div class="col_7">
+                <input type="text" ng-model="salon.salonName">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">联系人</div>
+            <div class="col_7">
+                <input type="text" ng-model="salon.contact">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">联系电话</div>
+            <div class="col_7">
+                <input type="text" ng-model="salon.phone">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">店铺地址</div>
+            <div class="col_7">
+                <input id="rest_time" type="text" ng-model="salon.salonAddress">
+            </div>
+        </li>
+        <li class="container" id="li_open">
+            <div class="col_3">开门时间</div>
+            <div class="col_7 fc_grey" opener="li_open" date-type="time" ng-model="salon.openTime" date-pickup></div>
+            <div class="col_2 ta_r">
+                <img src="../imgs/arrow_to.png" />
+            </div>
+        </li>
+        <li class="container" id="li_close">
+            <div class="col_3">关门时间</div>
+            <div class="col_7 fc_grey" opener="li_close" date-type="time" ng-model="salon.closeTime" date-pickup></div>
+            <div class="col_2 ta_r">
+                <img src="../imgs/arrow_to.png" />
+            </div>
+        </li>
+        <li>
+            <p>店铺介绍</p>
+            <textarea ng-model="salon.description"></textarea>
+        </li>
+        <li upload-image cut-width="574" cut-height="574" recieve-image="receiveQRDataURL">
+            <div class="container padding">
+                <div class="col_3">二维码</div>
+                <div class="col_9 ta_r">
+                    <img src="../imgs/arrow_to.png" />
+                </div>
+            </div>
+            <div class="ta_c">
+                <img class="shrink_383" ng-src="{{qrPicture|null:'imgs/no_pic574.jpg'}}">
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="foot_button" need-placeholder>
+    <a class="fc_blue" ng-click="submit()">提交</a>
+</div>

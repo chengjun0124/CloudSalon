@@ -1,0 +1,100 @@
+<div class="appointment">
+    <div class="no_appointment" ng-if="appointments.length==0">
+        <a href="#!/services"></a>
+        <p class="no_title">您当前没有预约</p>
+        <p><span>马上预约</span><img src="imgs/to_go.png"></p>
+    </div>
+    <div class="have_appointment" ng-if="appointments.length>0">
+        <p class="have_title">有<span class="app_num">{{appointments.length}}</span>个预约</p>
+        <div class="have_appointment_des" ng-repeat="a in appointments">
+            <a href="#!/appointment/{{a.appointmentId}}"></a>
+            <div class="have_appointment_left">
+                <p>
+                    <img class="appo_icon" src="imgs/appo.png">
+                    <span>预约时间:</span><span class="grey_word">{{a.appointmentDate.format("YYYY-MM-dd hh:mm")}}</span>
+                </p>
+                <p>
+                    <img class="appo_icon" src="imgs/appo.png">
+                    <span>预约项目:</span><span class="grey_word">{{a.serviceName}}</span>
+                </p>
+                <p class="appo_beauty">
+                    <img class="appo_icon" src="imgs/appo1.png">
+                    <span>预约技师:</span>
+                    <img class="appo_beauty_pic" ng-src="{{a.employeePicture|null:'imgs/no_pic130.jpg'}}">
+                    <span class="grey_word">{{a.nickName}}</span>
+                    <span class="appo_state" ng-class="{'appointment_pending':a.appointmentStatusId==1,'appointment_success':a.appointmentStatusId==3,'appointment_reject':a.appointmentStatusId==2,'appointment_cancel':a.appointmentStatusId==5||a.appointmentStatusId==6,'appointment_completed':a.appointmentStatusId==4}">
+                        <i></i><span class="appo_sta">{{a.appointmentStatusId|toAppointmentStatus}}</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="margin_20"></div>
+<div class="my_service">
+    <p class="my_service_title">
+        <img src="imgs/tt.png" />
+        <span style="font-size: 28px; color: #999;">我的服务</span>
+        <!--<span class="my_service_title_right">共2项</span>-->
+    </p>
+    <p ng-if="purchasedServices.length==0" class="no_title">您当前没有可用的服务</p>
+    <div ng-if="purchasedServices.length>0">
+        <div class="purchased_service_list_des" ng-repeat="ps in purchasedServices">
+            <a href="#!/service/{{ps.serviceId}}">
+                <div class="purchased_service_list_img">
+                    <img ng-src="{{ps.smallSubjectImage|null:'imgs/no_pic210.jpg'}}">
+                </div>
+                <div class="purchased_service_list_txt">
+                    <p class="purchased_service_list_title">
+                        {{ps.serviceName}}
+                    </p>
+                    <p class="">购买类型：{{ps|toPurchaseMode}}</p>
+                    <p class="">服务次数：{{ps|toServiceTime}}  <span ng-if="ps.time!=null">剩余{{ps|toRemainTime}}次</span></p>
+                    <p class="">上次时间：{{ps|toLastConsumedDate}}</p>
+                    <p class="txt_state3" ng-if="ps.hasPendingAppointment">已预约</p>
+                    <a href="#!/service_appoint/{{ps.serviceId}}">
+                        <p class="txt_state4" ng-if="!ps.hasPendingAppointment">预约</p>
+                    </a>
+                </div>
+            </a>
+        </div>
+        <div class="more"><a href="#!/purchasedservices">...更多...</a></div>
+    </div>
+</div>
+<div class="hot_service_bg">
+    <div class="hot_service">
+        <p class="hot_service_title">
+            <img src="imgs/lw.png" />
+            <span style="font-size: 28px; color: #999;">热门服务</span>
+        </p>
+        <div class="project_list_div" ng-repeat="s in hotServices">
+            <div class="project_list_img">
+                <a href="#!/service/{{s.serviceId}}">
+                    <img ng-src="{{s.smallSubjectImage|null:'imgs/no_pic210.jpg'}}" /></a>
+            </div>
+            <div class="project_list_txt">
+                <a class="href_to" href="#!/service/{{s.serviceId}}"></a>
+                <p class="project_list_name">
+                    {{s.serviceName}}
+                </p>
+                <p class="project_list_type">服务类型：{{s.serviceTypeName}}</p>
+                <p class="project_list_time">服务时长：{{s.duration}}分钟</p>                
+                <p class="project_list_use">
+                    <span class="">美容功效：</span><span class="tag fs_xxs border_orange fc_orange" ng-repeat="tag in s.functionalityTags">{{tag}}</span>
+                </p>
+                <p class="project_list_price">
+                    <span class="project_list_price_left price_degree" ng-if="s.oncePrice==null">暂无单次</span>
+                    <span class="project_list_price_left" ng-if="s.oncePrice!=null"><span class="price_icon">¥</span>{{s.oncePrice|null:"无"}}<span class="price_degree">/单次</span></span>
+                    <span class="project_list_price_right price_degree" ng-if="s.treatmentPrice==null">暂无疗程</span>
+                    <span class="project_list_price_right" ng-if="s.treatmentPrice!=null"><span class="price_icon">¥</span>{{s.treatmentPrice|null:"无"}}<span class="price_degree">/疗程<span ng-if="s.treatmentTime!=null">({{s.treatmentTime}}次)</span><span ng-if="s.treatmentTime==null">(无限制)</span></span></span>
+                </p>
+            </div>
+        </div>
+        <div class="hot_services_none_data" ng-show="hotServices.length==0">
+            <img src="imgs/none_data.png" />
+        </div>
+    </div>
+</div>
+<div class="no_space"></div>
+<div class="footer_menu" ng-controller="foot" ng-include="footTemplate"></div>

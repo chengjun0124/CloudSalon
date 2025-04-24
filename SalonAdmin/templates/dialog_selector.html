@@ -1,0 +1,4 @@
+<p class="item-s">请选择<span class="picker_sure" ng-if="isMultiple" ng-click="confirm()">确定</span></p>
+<div class="item" ng-click="select(i)" ng-repeat="i in items" ng-class="{'selected':selectedIndexes[$index],'first-item':$index==0}" value="{{i[itemValue]}}" ng-bind-html="i[itemText]|to_trusted">
+    <i ng-if="isMultiple&&selectedIndexes[$index]"><img src="imgs/s_delete.png" /></i>
+</div>

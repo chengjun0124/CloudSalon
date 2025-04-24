@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/manage_style.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="login_bg">
+        <div class="login_logo">
+            <img src="imgs/logo2.png"/>
+        </div>
+        <div class="login_fill">
+            <div class="login_fill_name">
+                <img src="imgs/login_name.png"/>
+                <input class="fill_input" type="number" name="fill_name" placeholder="请输入手机号">
+            </div>
+            <div class="login_fill_word">
+                <img src="imgs/login_password.png"/>
+                <input class="fill_input" type="password" name="fill_word" placeholder="验证码">
+                <span class="get_code">获取验证码</span>
+            </div>
+            <div class="login_button">
+                <p>登录</p>
+            </div>
+        </div>
+    </div>
+	<div class="login_tip_bg"></div>
+	<div class="login_tip">
+		<div class="tip_left">
+			<img src="imgs/person.png"/></div>
+		<div class="tip_right">
+			<P>输入错误</p>
+			<P>亲,请输入正确的手机号码!</p>
+			<P class="tip_sure">确认</p>
+		</div>
+		<i class="tip_cha"></i>
+	</div>
+    <script>
+        var height=$(window).height();
+        $("body").css("height",height);
+    </script>
+	<script>
+		//关闭错误提示
+		$(".login_tip_bg").click(function(){
+			$(".login_tip_bg").css("display","none");
+			$(".login_tip").css("display","none");
+		});
+        $(".tip_cha").click(function(){
+			$(".login_tip_bg").css("display","none");
+			$(".login_tip").css("display","none");
+		});
+    </script>
+</body>
+</html>

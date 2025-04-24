@@ -1,0 +1,159 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div ng-if="!isPreview&&action=='aocharge'" class="content bgc_grey2">
+    <p>
+        <img class="shrink_19" src="imgs/tubiao_server.png"><span>&nbsp;服务项目</span>
+    </p>
+    <div class="container col3">
+        <div class="col_4">
+            <img class="shrink_140" ng-src="{{purchasedService.smallSubjectImage|null:'imgs/no_pic210.jpg'}}" />
+        </div>
+        <div class="col_8">
+            <p>{{purchasedService.serviceName}}</p>
+            <p>美丽周期：{{purchasedService.interval|toInterval}}</p>
+            <p><span>服务总量：{{purchasedService|toServiceTime}}&nbsp;</span><span ng-if="purchasedService.time!=null">余<font class="fc_red">{{purchasedService|toRemainTime}}</font>次</span></p>
+            <p>上次服务：{{purchasedService|toLastConsumedDate}}</p>
+        </div>
+    </div>
+</div>
+<div class="list" ng-if="!isPreview&&(action=='aoscan'||action=='update')" validation="required" fieldname="服务" ng-model="purchasedService">
+    <p>
+        <img class="shrink_19" src="imgs/tubiao_server.png"><span>&nbsp;服务项目</span>
+    </p>
+    <ul>
+        <li ng-repeat="ps in purchasedServices" ng-click="selectPurchasedService(ps)" class="container col3" ng-class="{'border_blue':ps==purchasedService}">
+            <div class="col_4">
+                <img class="subject" ng-src="{{ps.smallSubjectImage|null:'imgs/no_pic210.jpg'}}" />
+            </div>
+            <div class="col_7">
+                <p>{{ps.serviceName}}</p>
+                <p>美丽周期：{{ps.interval|toInterval}}</p>
+                <p><span>服务总量：{{ps|toServiceTime}}&nbsp;</span><span ng-if="ps.time!=null">余<font class="fc_red">{{ps|toRemainTime}}</font>次</span></p>
+                <p>上次服务：{{ps|toLastConsumedDate}}</p>
+            </div>
+            <div class="col_1 ta_l" ng-show="ps==purchasedService">
+                <img class="shrink_27" src="imgs/selected01.png" />
+            </div>
+        </li>
+    </ul>
+</div>
+<div ng-if="!isPreview" class="content">
+    <p>
+        <img class="shrink_16" src="imgs/beautician.png" /><span>&nbsp;服务技师</span>
+    </p>
+    <div validation="required" fieldname="技师" ng-model="selectedBeautician" class="list_h">
+        <ul>
+            <li ng-repeat="b in beauticians" ng-click="selectBeautician(b)">
+                <p>
+                    <img class="shrink_87" ng-src="{{b.smallPicture|null:'imgs/no_pic130.jpg'}}" ng-class="{'border_blue':selectedBeautician==b}" />
+                </p>
+                <p class="ta_c">{{b.nickName}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="ta_c" ng-if="beauticians.length==0">暂无技师可选择</div>
+</div>
+<div ng-if="!isPreview" class="list nohr">
+    <ul>
+        <li>
+            <img class="shrink_20" src="imgs/tubiao_xiaofei.png"><span>&nbsp;消费扣除</span>
+        </li>
+        <li class="container">
+            <div class="col_1"></div>
+            <div class="col_2 fs_s">本次消费</div>
+            <div class="col_1 border_grey3">
+                <input class="" validation="required|||number:::0|||range:::1-100{{purchasedService.time!=null?'|||compare:::'+(purchasedService|toRemainTime)+':::<=:::false:::剩余次数':''}}" maxlength="3" fieldname="消费次数" ng-model="aoCharge.time" type="text">
+            </div>
+            <div>次</div>
+        </li>
+        <li class="container">
+            <div class="col_1"></div>
+            <div class="col_11">
+                <input type="text" maxlength="200" validation="{{aoCharge.time!=1?'required':''}}" placeholder="如有修改，请输入修改原因" ng-model="aoCharge.changeTimeReason" fieldname="修改原因">
+            </div>
+        </li>
+    </ul>
+</div>
+<div ng-if="!isPreview" class="list nohr">
+    <ul>
+        <li>
+            <img class="shrink_20" src="imgs/tubiao_yuyue.png"><span>&nbsp;本次预约</span>
+        </li>
+        <li ng-if="appointments.length==0" class="ta_c">
+            <img class="shrink_20" src="imgs/no_yuyue.png"><span>&nbsp;本次服务没有相应的预约！</span>
+        </li>
+        <li ng-repeat="a in appointments" class="container col3" ng-click="selectAppointment(a)" ng-class="{'border_blue':selectedAppointment==a}">
+            <div class="col_3">
+                <p>
+                    <img class="shrink_87" ng-src="{{a.employeePicture|null:'imgs/no_pic130.jpg'}}" />
+                </p>
+                <p>{{a.nickName}}</p>
+            </div>
+            <div class="col_8">
+                <p>预约时间：{{a.appointmentDate.format("YYYY-MM-dd hh:mm")}}</p>
+                <p>预约技师：{{a.nickName}}</p>
+                <p>预约状态：{{a.appointmentStatusId|toAppointmentStatus}}</p>
+            </div>
+            <div class="col_1 ta_l" ng-show="selectedAppointment==a">
+                <img class="shrink_27" src="imgs/selected01.png" />
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="list small nohr" ng-if="isPreview">
+    <ul>
+        <li class="container">
+            <div class="col_1">
+                <img class="shrink_19" src="imgs/tubiao_server_h.png">
+            </div>
+            <div class="col_3 fc_grey">
+                服务项目：
+            </div>
+            <div class="col_8">
+                {{purchasedService.serviceName}}
+            </div>
+            <p></p>
+        </li>
+        <li class="container">
+            <div class="col_4"></div>
+            <div class="col_8 fc_grey fs_xs">
+                <span>服务总量：{{purchasedService|toServiceTime}}&nbsp;</span><span ng-if="purchasedService.time">余：<font class="fc_red">{{purchasedService|toRemainTime}}</font>次</>
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_1 as_s">
+                <img class="shrink_16" src="imgs/beautician.png">
+            </div>
+            <div class="col_3 as_s fc_grey">
+                服务技师：
+            </div>
+            <div class="col_8">
+                <p>
+                    <img class="shrink_87" ng-src="{{selectedBeautician.smallPicture|null:'imgs/no_pic130.jpg'}}" /></p>
+                <p>{{selectedBeautician.nickName}}</p>
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_1">
+                <img class="shrink_20" src="imgs/tubiao_yuyue.png">
+            </div>
+            <div class="col_3 fc_grey">预约时间：</div>
+            <div class="col_8">{{selectedAppointment.appointmentDate.format("YYYY-MM-dd hh:mm")}}</div>
+        </li>
+        <li class="container">
+            <div class="col_1">
+            </div>
+            <div class="col_3 fc_grey">预约状态：</div>
+            <div class="col_8">{{selectedAppointment.appointmentStatusId|toAppointmentStatus}}</div>
+        </li>
+    </ul>
+</div>
+<div ng-if="isPreview" class="content">
+    <p class="ta_c">
+        <img class="shrink_27" src="imgs/tagging01.png">
+        <span>本次扣除：{{aoCharge.time}}次</span>
+    </p>
+    <p>
+        扣除原因：{{aoCharge.changeTimeReason}}
+    </p>
+</div>
+<div id="foot_button" ng-controller="button_preview" ng-include="buttonPreviewTemplate" need-placeholder></div>

@@ -1,0 +1,30 @@
+<div id="head" need-placeholder>服务</div>
+<div id="subhead" need-placeholder>
+    <div>
+        <img src="imgs/service_total_num.png" />
+        <span>共{{serviceCount}}项服务</span>
+    </div>
+    <div class="right">
+        <a ng-if="userTypeId==4||userTypeId==5" href="#!/service_edit/">
+            <img class="shrink_17" src="imgs/service_add.png" /></a>
+    </div>
+</div>
+<div class="list col3" load-more="loadMore()" top="155" bottom="93" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="s in services">
+            <a href="#!/service/{{s.serviceId}}" class="container">
+                <div class="col_4">
+                    <img class="shrink_140" ng-src="{{s.smallSubjectImage|null:'imgs/no_pic210.jpg'}}">
+                </div>
+                <div class="col_8">
+                    <p>{{s.serviceName}}</p>
+                    <p>服务类型：{{s.serviceTypeName}}</p>
+                    <p>服务价格：<span ng-if="s.oncePrice==null">暂无单次&nbsp;</span><span ng-if="s.oncePrice!=null">¥{{s.oncePrice}}/单次&nbsp;</span><span ng-if="s.treatmentPrice==null">暂无疗程</span><span ng-if="s.treatmentPrice!=null">¥{{s.treatmentPrice}}/疗程</span></p>
+                    <p>服务时长：{{s.duration}}分钟</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<no-data data="services"></no-data>
+<div id="foot_menu" ng-controller="foot" need-placeholder ng-include="footTemplate"></div>

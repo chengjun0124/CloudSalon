@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单确认</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="order">
+        <ul>
+            <li>
+                <div class="project_list_div">
+                    <div class="project_list_img">
+                        <a href=""><img src="imgs/tu_o.png"></a>
+                    </div>
+                    <div class="project_list_txt">
+                        <a class="href_to" href=""></a>
+                        <p class="project_list_name">
+                            特色背部单人SPA套餐特色背部单人spa
+                        </p>
+                        <p class="project_list_type">服务类型：美白祛斑</p>
+                        <p class="pain_star">
+                            <i class="title">疼痛指数：</i>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </p>
+                        <p class="project_list_time">服务时长：50分钟</p>
+                        <p>美丽周期：间隔5天</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="pick_meal">
+            <p class="meal_title">选择套餐</p>
+            <p class="meal_choose">
+                <span class="meal_choose_span active">
+                    <span class="price_icon">¥</span>900<span class="price_degree">/单次</span>
+                </span>
+                <span class="meal_choose_span">
+                    <span class="price_icon">¥</span>1300<span class="price_degree">/疗程(5天)</span>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="order_footer">
+        <p>提交</p>
+    </div>
+    <script>
+        $(".meal_choose span").each(function(){
+            $(".meal_choose_span").click(function(){
+                $(this).parent().find(".meal_choose_span").attr("class","meal_choose_span");
+                $(this).addClass("active");
+            })
+        })
+    </script>
+</body>
+</html>

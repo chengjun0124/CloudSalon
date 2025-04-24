@@ -1,0 +1,141 @@
+<div id="head" class="home" need-placeholder>
+    <img src="imgs/top_ban_logo.png" />
+</div>
+<div class="content container bgc_blue fc_white fs_xl">
+    <div class="col_2">
+        <img class="shrink_71" src="imgs/person_num.png" />
+    </div>
+    <div class="col_4">
+        <p>今日预约</p>
+        <p>已确认订单</p>
+    </div>
+    <div>
+        <p>{{appointmentTodayCound}}人</p>
+    </div>
+</div>
+
+<div class="list nohr" ng-if="userTypeId==2 && recentAppointment!=null">
+    <ul>
+        <li class="fs_s">
+            <img class="shrink_20" src="imgs/attention.png" /><span>&nbsp;预约您的服务还有<span ng-if="remainderHours>0">{{remainderHours}}小时</span>{{remainderMinutes}}分钟</span>
+        </li>
+        <li>
+            <a href="#!/appointment/{{recentAppointment.appointmentId}}" class="container">
+                <div class="col_3 ta_c">
+                    <img class="circle shrink_67" ng-src="{{recentAppointment.userPicture|null:'imgs/no_pic100.jpg'}}" />
+                </div>
+                <div class="col_10 fs_xs">
+                    <p><span class="fc_grey">顾客：</span>{{recentAppointment.userNickName}}</p>
+                    <p><span class="fc_grey">时间：</span>{{recentAppointment.appointmentDate.format("MM-dd hh:mm")}}</p>
+                    <p><span class="fc_grey">项目：</span>{{recentAppointment.serviceName}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="list big nohr ta_c bgc_grey2">
+    <ul ng-if="userTypeId==2">
+        <li class="container">
+            <div class="col_4">
+                <a href="#!/appointments">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-1.png" />
+                    </p>
+                    <p>预约</p>
+                </a>
+            </div>
+            <div class="col_4">
+                <a href="#!/unavaitime">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-2.png" />
+                    </p>
+                    <p>不可预约时间</p>
+                </a>
+            </div>
+            <div class="col_4">
+                <a href="#!/consumedservices">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-5.png" />
+                    </p>
+                    <p>服务记录</p>
+                </a>
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_4">
+                <a href="#!/help">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-6.png" />
+                    </p>
+                    <p>帮助</p>
+                </a>
+            </div>
+        </li>
+    </ul>
+    <!--以下为管理员登录的菜单-->
+    <ul ng-if="userTypeId==4||userTypeId==5">
+        <li class="container">
+            <div class="col_4">
+                <a ng-click="scan()">
+                    <p>
+                        <img class="shrink_80" src="imgs/tubiao_js.png" />
+                    </p>
+                    <p>扫码</p>
+                </a>
+            </div>
+            <div class="col_4">
+                <a href="#!/appointments">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-1.png" />
+                    </p>
+                    <p>预约</p>
+                </a>
+            </div>
+            <div class="col_4">
+                <a href="#!/employees">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-2.png" />
+                    </p>
+                    <p>员工</p>
+                </a>
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_4">
+                <a href="#!/customers">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-3.png" /><!--<span class="num">6</span>-->
+                    </p>
+                    <p>顾客</p>
+                </a>
+            </div>
+            <div class="col_4">
+                <a href="#!/salon">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-7.png" />
+                    </p>
+                    <p>店铺</p>
+                </a>
+            </div>
+            <div class="col_4">
+                <a href="#!/consumedservices">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-5.png" />
+                    </p>
+                    <p>服务记录</p>
+                </a>
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_4">
+                <a href="#!/help">
+                    <p>
+                        <img class="shrink_80" src="imgs/menu-6.png" />
+                    </p>
+                    <p>帮助</p>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="foot_menu" ng-controller="foot" need-placeholder ng-include="footTemplate"></div>

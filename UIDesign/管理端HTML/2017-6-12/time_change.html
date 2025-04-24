@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改时间</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/LCalendar.css">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/branch.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="change_time_list">
+        <div class="change_time_list_title">
+            <p>
+                <span class="time_list_title_left">
+                    <img src="imgs/time_change.png">
+                </span>
+                <span>选择时间</span>
+            </p>
+        </div>
+        <ul>
+            <li>
+                <div>
+                    <input class="input_edit" id="chose_time" type="text" readonly="" value="" placeholder="开始时间">
+                </div>
+                <i class="to_chose"></i>
+            </li>
+            <li>
+                <div>
+                    <input class="input_edit"  type="text" value="" placeholder="结束时间">
+                </div>
+                <i class="to_chose"></i>
+            </li>
+        </ul>
+    </div>
+    <!--休息时间 Start-->
+    <div class="time_set_section_div">
+        <div class="time_set_section">
+            <p>
+            <span class="time_set_section_left">
+                <i class="blue_dian"></i><i>13:00</i>—<i>14:30</i>
+            </span>
+                <span class="time_set_section_right">关闭预约</span>
+            </p>
+        </div>
+        <div class="time_set_section">
+            <p>
+            <span class="time_set_section_left">
+                <i class="blue_dian"></i><i>13:00</i>—<i>14:30</i>
+            </span>
+                <span class="time_set_section_right">关闭预约</span>
+            </p>
+        </div>
+    </div>
+
+    <!--休息时间 End-->
+    <div class="change_time_list" style="margin-bottom:120px;">
+        <div class="change_time_list_title">
+            <p>
+                <span class="time_list_title_left">
+                    <img src="imgs/change_reason.png">
+                </span>
+                <span>修改原因</span>
+            </p>
+        </div>
+        <ul class="cho_ul">
+            <li class="cho_re">
+                <p class="reason_choose">调休</p>
+                <span></span>
+            </li>
+            <li>
+                <p class="reason_choose">临时请假</p>
+                <span></span>
+            </li>
+            <li>
+                <p class="reason_choose">用户更改预约时间</p>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    <div class="person_info_sub">
+        <p>提交</p>
+    </div>
+<script>
+    $(".reason_choose").click(function(){
+        $(".cho_ul").find("li").attr("class","");
+        $(this).parent().addClass("cho_re");
+    });
+</script>
+<script type="text/javascript" src="js/LCalendar.js"></script>
+<script>
+    //选择开始时间
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#chose_time',
+        'type': 'date',
+        'minDate': '1900-1-1',
+        'maxDate': new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
+    });
+    //选择结束时间
+    var calendar2 = new LCalendar();
+    calendar2.init({
+        'trigger': '#chose_time2',
+        'type': 'date',
+        'minDate': '1900-1-1',
+        'maxDate': new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
+    });
+</script>
+</body>
+</html>

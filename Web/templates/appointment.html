@@ -1,0 +1,16 @@
+<div class="appointment_order_bg">
+    <div class="appointment_order">
+        <p class="order_num">
+            <img src="imgs/tt.png"><span>订单编号：{{appointment.appointmentId}}</span></p>
+        <p>{{appointment.serviceName}}</p>
+        <p>预约时间：{{appointment.appointmentDate.toDateTimeString()}}</p>
+        <p>预约技师：{{appointment.nickName}}</p>
+        <p>
+            预约状态：<span ng-class="{'appointment_pending':appointment.appointmentStatusId==1,'appointment_success':appointment.appointmentStatusId==3,'appointment_reject':appointment.appointmentStatusId==2,'appointment_cancel':appointment.appointmentStatusId==5||appointment.appointmentStatusId==6,'appointment_completed':appointment.appointmentStatusId==4}">{{appointment.appointmentStatusId|toAppointmentStatus}}</span>
+        </p>
+    </div>
+</div>
+<div class="appo_operate">
+    <div ng-class="{'appo_operate_left':appointment.appointmentStatusId==1}"><a href="tel:{{appointment.salonPhone}}">联系美容院</a></div>
+    <div ng-if="appointment.appointmentStatusId==1" class="appo_operate_right" ng-click="cancelAppoint()">取消预约</div>
+</div>

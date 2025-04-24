@@ -1,0 +1,217 @@
+/*已购买的服务*/
+.purch_explain{
+    font-size:28px;
+    margin:30px 25px;
+}
+.purch_list{
+    background:#ffffff;
+    width:100%;
+    overflow: hidden;
+    padding:0 25px;
+}
+.purch_list_tex{
+    float:left;
+    margin-left:15px;
+}
+.purch_list_img{
+    float:left;
+}
+.purch_list_price{
+    float:right;
+    color:#e42f2f;
+    margin-right:10px;
+}
+.purch_list li{
+    overflow: hidden;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 30px 0;
+}
+/*我的二维码*/
+.mycode_con_bg{
+    magin:auto 0;
+    text-align: center;
+    background: #ffffff;
+    margin:155px 60px;
+    overflow: hidden;
+}
+.mycode_use{
+    margin-top:82px;
+    width:425px;
+    display: inline-block;
+}
+.mycode_use li{
+    float:left;
+}
+.mycode_use p{
+    text-align: left;
+}
+.mycode_use_r{
+    margin-left:12px;
+    line-height:40px;
+}
+.mycode_code{
+    margin-top:32px;
+    margin-bottom:130px;
+}
+/*通知*/
+.notice_list{
+     background:#ffffff;
+     width:100%;
+     overflow: hidden;
+ }
+.notice_list ul{
+    margin:30px;
+    overflow: hidden;
+}
+.notice_list li{
+    overflow: hidden;
+}
+.notice_list_tit{
+    font-size:28px;
+    margin-bottom:10px;
+}
+.notice_list_con{
+    font-size:24px;
+}
+.notice_list_l{
+    width:85%;
+    float:left;
+    overflow: hidden;
+    display:inline-block;
+    margin-bottom:30px;
+}
+.notice_list_l p{
+    line-height:35px;
+}
+.notice_list_r{
+    float:right;
+    font-size: 28px;
+    height:170px;
+    line-height:170px;
+    margin-right:10px;
+    overflow: hidden;
+    display:inline-block;
+}
+.line-fenge{
+    width:100%;
+    height:1px;
+    background:#e5e5e5;
+    overflow: hidden;
+    margin-bottom:30px;
+}
+.notice_list_con_g{
+    color:#999999;
+}
+/*回执详情*/
+.confirmset_con{
+    background: #ffffff;
+    padding:15px 25px;
+}
+.confirmset_con_small{
+    font-size:24px;
+    text-indent: 185px;
+    color:#999999;
+}
+.confirmset_con_name{
+    font-size:24px;
+    text-indent: 200px;
+    color:#999999;
+}
+.confirmset_con p{
+    line-height:40px;
+}
+.confirmset_con li{
+    margin-top:20px;
+}
+.confirmset_modify{
+    margin-top:12px;
+    padding-top:20px;
+    background: #ffffff;
+    font-size:28px;
+}
+.confirmset_modify p{
+    margin-top:13px;
+}
+.confirmset_modify_u{
+    text-align: center;
+    margin-right:20px;
+}
+.confirmset_modify_x{
+    margin-top:10px;
+    margin-left:42px;
+    color:#999999;
+    padding-bottom:30px;
+}
+.service_detail_operate {
+    width: 100%;
+    height: 100px;
+    color: #999;
+    font-size: 30px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+.service_detail_operate ul{
+    width:100%;
+}
+.service_detail_operate ul li{
+    height:100%;
+    float: left;
+    position: relative;
+}
+.service_detail_footer_operate{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    padding: 40px 0 0;
+}
+.service_detail_footer_operate img {
+    display: block;
+    float: left;
+}
+.op1{
+    width:50%;
+    border-right:1px solid #e5e5e5;
+}
+.op1 img{
+    margin: 5px 0 0 40px;
+}
+.op1 span{
+    padding-right:20px;
+}
+.op2{
+    width:49.7%;
+}
+.op2 img{
+    margin: 5px 0 0 90px;
+}
+.op2 span{
+    padding-right:70px;
+}
+.op3{
+    width:37%;
+}
+.op3 img{
+    margin: 2px 0 0 70px;
+}
+.op3 span{
+    padding-right: 20px;
+}
+.ngdialog-theme-upload .ngdialog-content {
+    height:100%;
+}
+
+.ngdialog-theme-upload .ngdialog-content iframe {
+    border:0px;
+    width:100%;
+    height:100%;
+}
+.no_space{
+    margin-bottom:100px;
+}
+.receipt_btn{
+    color:#73dce6;
+}

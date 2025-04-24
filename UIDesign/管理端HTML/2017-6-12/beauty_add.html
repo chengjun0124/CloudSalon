@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加技师</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/branch.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="person_info">
+        <ul>
+            <li class="person">
+                <div class="person_info_left">
+                    <p>照片</p>
+                </div>
+                <div class="person_info_right tou_xiang">
+                    <i class="to_chose"></i>
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>姓名</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="" placeholder="请输入技师姓名">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>编号</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="" placeholder="请输入技师编号">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>账号</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="" placeholder="请输入手机号">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>密码</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="" placeholder="123456">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>休息</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" id="rest_time" type="text" value="" placeholder="设置技师的固定休息时间" readonly>
+                </div>
+                <i class="to_chose"></i>
+            </li>
+            <li class="area_edit_li">
+                <p class="area_edit_title">简介</p>
+                <textarea class="input_edit area_edit"></textarea>
+            </li>
+        </ul>
+    </div>
+    <div class="set_to">
+        <p>设为店长</p>
+    </div>
+    <div class="person_info_sub">
+        <p>提交</p>
+    </div>
+    <div class="fileMask"></div>
+    <div class="picker-modal">
+        <p class="picker-item">请选择</p>
+        <div class="picker-item picker-selected" picker-value="周一">周一</div>
+        <div class="picker-item" picker-value="2">周二</div>
+        <div class="picker-item" picker-value="3">周三</div>
+        <div class="picker-item" picker-value="4">周四</div>
+    </div>
+    <script src="js/picker.js"></script>
+</body>
+</html>

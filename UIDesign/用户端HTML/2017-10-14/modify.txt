@@ -1,0 +1,33 @@
+/*我的*/
+
+1.在class=“done_detail”的div下取消“购买的服务”的注释；
+2.在class="personal_done ng-scope"的div下面的<li>新增：
+       <li>
+            <div class="done_detail">
+                <div class="done_detail_icon">
+                    <img src="imgs/tubiao_erwm.png" width="36px">
+                </div>
+                <div class="done_detail_name">
+                    <p>我的二维码</p>
+                </div>
+                <div class="done_detail_to">
+                    <img src="imgs/arrow_to.png">
+                </div>
+                <a class="done_detail_href" href="#!/appointments"></a>
+            </div>
+        </li>
+        <li>
+            <div class="done_detail">
+                <div class="done_detail_icon">
+                    <img src="imgs/tubiao_tz.png" width="36px">
+                </div>
+                <div class="done_detail_name">
+                    <p>通知</p>
+                </div>
+                <div class="done_detail_to">
+                    <img src="imgs/arrow_to.png">
+                </div>
+                <a class="done_detail_href" href="#!/appointments"></a>
+            </div>
+        </li>
+3.

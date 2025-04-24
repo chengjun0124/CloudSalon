@@ -1,0 +1,49 @@
+<div id="head_share" ng-include="headerBackShareTemplate"></div>
+<div>
+    <img class="shrink_500" ng-src="{{salon.picture|null:'imgs/no_pic675.jpg'}}">
+</div>
+<div class="content">
+    <ul>
+        <li class="container">
+            <div class="col_3 fc_grey">美容院</div>
+            <div>{{salon.salonName}}</div>
+        </li>
+        <li class="container">
+            <div class="col_3 fc_grey">联系人&nbsp;</div>
+            <div>{{salon.contact}}</div>
+        </li>
+        <li class="container">
+            <div class="col_3 fc_grey">联系电话</div>
+            <div class="col_3">{{salon.phone}}</div>
+        </li>
+        <li class="container">
+            <div class="col_3 fc_grey">技师数量</div>
+            <div>{{salon.beauticianCount}}</div>
+        </li>
+        <li class="container">
+            <div class="col_3 fc_grey">店铺地址</div>
+            <div>{{salon.salonAddress}}</div>
+        </li>
+        <li class="container">
+            <div class="col_3 fc_grey">工作时间</div>
+            <div>每天{{salon.openTime.format("hh:mm")}}-{{salon.closeTime.format("hh:mm")}}</div>
+        </li>
+        <hr class="big" />
+        <li class="container">
+            <div class="col_3">店铺介绍</div>
+        </li>
+        <li class="fc_grey">
+            {{salon.description}}
+        </li>
+        <hr class="big" />
+        <li class="container">
+            <div class="col_3">店铺二维码</div>
+        </li>        
+        <li class="ta_c">
+            <img class="shrink_383" ng-src="{{salon.qrCodePicture|null:'imgs/no_pic574.jpg'}}">
+        </li>
+    </ul>
+</div>
+<div id="foot_button" class="fc_blue" need-placeholder>
+    <a href="#!/salon_edit">编辑</a>
+</div>

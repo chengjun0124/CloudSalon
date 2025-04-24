@@ -1,0 +1,25 @@
+<div class="purch_explain">
+    <img src="imgs/tubiao_count.png" style="vertical-align: -10%;">
+    <span>共{{purchasedServiceCount}}项服务</span>
+</div>
+<div class="purch_list" load-more="loadMore()" top="91" bottom="0" load-more-css="load_more" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="ps in purchasedServices">
+            <a href="#!/purchasedservice/{{ps.purchasedServiceId}}">
+                <div class="purch_list_img">
+                    <img ng-src="{{ps.smallSubjectImage|null:'imgs/no_pic210.jpg'}}" />
+                </div>
+                <div class="purch_list_tex">
+                    <p style="font-size: 28px;">{{ps.serviceName}}</p>
+                    <p style="font-size: 24px; color: #999999; margin-top: 8px;">购买类型：{{ps|toPurchaseMode}}</p>
+                    <p style="font-size: 24px; color: #999999; margin-top: 8px;">服务次数：{{ps|toServiceTime}}   <span ng-if="ps.time!=null">剩余{{ps|toRemainTime}}次</span></p>
+                    <p style="font-size: 24px; color: #999999; margin-top: 8px;">上次时间：{{ps|toLastConsumedDate}}</p>
+                </div>
+                <div class="purch_list_price"><span style="font-size: 20px;">￥</span> <span style="font-size: 32px;">{{ps.payment}}</span></div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="none_data" ng-if="purchasedServices.length==0">
+    <img src="imgs/none_data.png" />
+</div>

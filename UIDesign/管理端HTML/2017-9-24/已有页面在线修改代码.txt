@@ -1,0 +1,128 @@
+/*顾客列表页*/
+
+Html：
+<div class="customer_list_left_txt">
+ <p class="p_top ng-binding">未填昵称</p>
+ <p class="grey_word ng-binding"><span>姓名：蒋时洪</span> <span class="p_top_right_sx">13585601248</span></p>
+ <p class="grey_word ng-binding"><span>购买服务：5项</span> <span>剩余3项15次</span></p>
+ <p class="grey_word ng-binding">最近消费：2017-07-09 22:06</p>
+</div>
+新增：
+在<div class="customer_list ng-scope ng-isolate-scope">后面增加
+<div class="service_detail_operate">
+ <ul>
+   <li class="op1">
+     <div class="service_detail_footer_operate">
+       <img src="imgs/user_new01.png"><span>添加新用户</span>
+     </div>
+   </li>
+   <li class="op2">
+     <div class="service_detail_footer_operate">
+       <img src="imgs/user_new02.png"><span>添加匿名用户</span>
+     </div>
+   </li>
+ </ul>
+</div>
+
+CSS：
+.customer_list_left_txt添加“width:80%;”
+
+新增：
+.customer_list_left_txt p {
+    margin-top: 10px;
+}
+.p_top_right_sx{
+float：right;
+}
+修改：
+.op1 img {
+    margin: 5px 0 0 120px;
+}
+.op1 span{
+    padding-right:50px;
+    color: #73dce6;
+}
+.op2 img {
+    margin: 5px 0 0 80px;
+}
+.op2 span {
+    padding-right: 70px;
+}
+
+/*选择服务*/
+
+用线上“服务”修改
+
+删除：
+
+<div class="service_total_num ng-scope">
+    <div class="service_total_num_left">
+        <img src="imgs/service_total_num.png">
+    </div>
+    <div class="service_total_num_title">
+        共<span class="ng-binding">11</span>项服务
+    </div>
+    <div class="service_total_num_right">
+        <!-- ngIf: userTypeId==4||userTypeId==5 --><a ng-if="userTypeId==4||userTypeId==5" href="#!/service_edit/" class="ng-scope"><img src="imgs/service_add.png" style="float: right;"></a><!-- end ngIf: userTypeId==4||userTypeId==5 -->
+    </div>
+</div>
+
+<div class="footer_menu ng-scope" ng-controller="foot" ng-include="footTemplate"><ul class="ng-scope">
+    <li>
+        <a href="#!/home">
+            <div class="menu-pic">
+                <img ng-src="imgs/home.png" src="imgs/home.png">
+            </div>
+            <div class="menu-name" ng-class="{'active':isHomeActive}">主页</div>
+        </a>
+    </li>
+    <li>
+        <a href="#!/services">
+            <div class="menu-pic">
+                <img ng-src="imgs/service2.png" src="imgs/service2.png">
+            </div>
+            <div class="menu-name active" ng-class="{'active':isServicesActive}">服务</div>
+        </a>
+    </li>
+    <li>
+        <a href="#!/setup">
+            <div class="menu-pic">
+                <img ng-src="imgs/setting.png" src="imgs/setting.png">
+            </div>
+            <div class="menu-name" ng-class="{'active':isSetupActive}">设置</div>
+        </a>
+    </li>
+</ul>
+</div>
+
+<div class="purchased_service_list_des">改为<div class="purchased_service_list_des service_selected">
+
+CSS增加
+.purchased_service_list_des.service_selected{
+    border: 2px solid #77dce5;
+    z-index: 9999;
+    background: url(../imgs/tt.png) no-repeat;
+    background-attachment: fixed;
+    background-position: 90% 39%;
+}
+
+在
+<div class="load_more">上拉加载更多</div>
+</div>
+后面新增
+
+<div class="footer_menu">
+  
+    <a herf=""><div class="footer_menu_one"><img src="imgs/confire01.png"> 提交</div></a>
+  
+</div>
+
+css增加
+.footer_menu_one {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 28px;
+}
+

@@ -1,0 +1,26 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="list big">
+    <ul>
+        <li class="container">
+            <div class="col_2">姓名</div>
+            <div>
+                <input type="text" ng-model="user.name" maxlength="6" placeholder="请输入用户全名">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_2">手机</div>
+            <div>
+                <input type="text" ng-model="user.mobile" validation="required|||mobile" fieldname="手机" maxlength="11" placeholder="请输入手机号码">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_2">备注</div>
+            <div>
+                <input type="text" class="input_edit" ng-model="user.memo" maxlength="500" placeholder="可以为用户添加备注">
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="foot_button">
+    <a class="fc_blue" validate-click="submit()">提交</a>
+</div>

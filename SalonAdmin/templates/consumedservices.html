@@ -1,0 +1,47 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div id="subhead_week" need-placeholder>
+    <div>
+        <span ng-click="selectWeek(-1)">
+            <img src="imgs/arrow_to2.png" />&nbsp;上一周
+        </span>
+        <span>{{startDate.format("YYYY年MM月")}}
+        </span>
+        <span ng-click="selectWeek(1)">下一周&nbsp;<img src="imgs/arrow_to.png" />
+        </span>
+    </div>
+    <div>
+        <ul>
+            <li ng-repeat="day in days" ng-class="{'fc_white bgc_blue':day.date.format('YYYYMMdd')==selectedDate.format('YYYYMMdd')}" ng-click="selectDate(day.date)">
+                <p>{{day.date.format("day")}}</p>
+                <p>{{day.date.format("dd")}}</p>
+                <p class="fc_grey" ng-class="{'fc_white':day.date.format('YYYYMMdd')==selectedDate.format('YYYYMMdd')}">{{day.count}}次</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div load-more="loadMore()" top="330" bottom="0" page-size="PAGESIZE" data="dataForLoadMore" class="list col3">
+    <ul>
+        <li ng-repeat="a in consumedServices">
+            <a href="#!/consumedservice/{{a.consumedServiceId}}" class="container">                
+                    <div class="col_2">
+                        <p>
+                            <img class="circle shrink_67" ng-src="{{a.userPicture|null:'imgs/no_pic100.jpg'}}">
+                        </p>
+                        <p>{{a.isAnonym?"匿名":a.userName}}</p>
+                    </div>
+                    <div class="col_7">
+                        <p>
+                            <img class="shrink_17" src="imgs/record_time.png">&nbsp;<span>{{a.consumedDate.format("hh:mm")}}</span>
+                        </p>
+                        <p><span>服务项目：</span>{{a.serviceName}}</p>
+                        <p><span>服务扣除：</span>{{a.time}}次</p>
+                        <p><span>备&nbsp;&nbsp;&nbsp;&nbsp;注：</span>{{a.changeTimeReason}}</p>
+                    </div>
+                    <div class="col_3">
+                        {{a.employeeNickName}}
+                    </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<no-data data="consumedServices"></no-data>

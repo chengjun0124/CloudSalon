@@ -1,0 +1,34 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div id="subhead" need-placeholder>
+    <div>
+        <img src="imgs/service_total_num.png" />
+        <span>共{{userCount}}人</span>
+    </div>
+    <div class="right">
+        <input ng-keyup="search()" ng-model="keyword" maxlength="15" placeholder="按手机，昵称，姓名搜索顾客">
+    </div>
+</div>
+<div class="list" load-more="loadMore()" top="181" bottom="95" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="u in users">
+            <a href="#!/user/{{u.userId}}" class="container col3">
+                <div class="col_2">
+                    <img class="circle shrink_67" ng-src="{{u.picture|null:'imgs/no_pic100.jpg'}}" />
+                </div>
+                <div class="col_7">
+                    <p>{{u.nickName|null:"未填昵称"}}</p>
+                    <p>姓名：{{u.name}}</p>
+                    <p>购买服务：{{u.purchasedServiceCount}}项 剩余{{u.remainPurchasedServiceCount}}项{{u.remainTime}}次</p>
+                    <p>最近消费：{{u.lastConsumedDate.format("YYYY-MM-dd")}}</p>
+                </div>
+                <div class="col_3"><span ng-if="userTypeId!=5">{{u.mobile|asteriskMobile}}</span><span ng-if="userTypeId==5">{{u.mobile}}</span></div>
+            </a>
+        </li>
+    </ul>
+</div>
+<no-data data="users"></no-data>
+<div id="foot_button" need-placeholder>
+    <a href="#!/user_add" class="fc_blue">添加新用户</a>
+    <a href="#!/service_select">匿名买单</a>
+</div>
+

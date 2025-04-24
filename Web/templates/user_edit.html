@@ -1,0 +1,40 @@
+<div class="person_info">
+    <ul>
+        <li upload-image cut-width="100" cut-height="100" recieve-image="receiveDataURL">
+            <div class="person_info_left">
+                <p>头像</p>
+            </div>
+            <div class="person_info_right tou_xiang">
+                <img ng-src="{{user.picture|null:'imgs/no_pic100.jpg'}}" />
+                <i></i>
+            </div>
+        </li>
+        <li>
+            <div class="person_info_left">
+                <p>昵称</p>
+            </div>
+            <div class="person_info_right">
+                <input maxlength="15" id="txt_nickName" class="input_edit" type="text" ng-model="user.nickName" />
+            </div>
+        </li>
+        <li>
+            <div class="person_info_left">
+                <p>姓名</p>
+            </div>
+            <div class="person_info_right">
+                <input maxlength="6" class="input_edit" type="text" ng-model="user.name" />
+            </div>
+        </li>
+        <li>
+            <div class="person_info_left">
+                <p>登录账号</p>
+            </div>
+            <div class="person_info_right">
+                <input class="input_edit" type="text" value="{{user.mobile}} (不可更改)" readonly>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="person_info_sub" ng-click="updateUser()">
+    <p>保存</p>
+</div>

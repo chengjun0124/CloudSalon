@@ -1,0 +1,28 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="content container ai_u">
+    <div class="col_2 ta_c">
+        <p>
+            <img class="circle shrink_67" ng-src="{{consumedService.userPicture|null:'imgs/no_pic100.jpg'}}">
+        </p>
+        <p>{{consumedService.userName}}</p>
+    </div>
+    <div class="col_10 fs_xs">
+        <p>{{consumedService.serviceName}}</p>
+        <p><font class="fc_grey">服务时间：</font>{{consumedService.consumedDate.format("YYYY-MM-dd hh:mm")}}</p>
+        <p><font class="fc_grey">服务状态：</font>{{consumedService.consumedServiceStatusId|toConsumeStatus}}</p>
+        <hr />
+        <p><font class="fc_grey">是否预约：</font>{{consumedService.appointmentDate==null?"未预约":"在线预约"}}</p>
+        <p ng-if="consumedService.appointmentDate!=null"><font class="fc_grey">预约时间：</font>{{consumedService.appointmentDate.format("YYYY-MM-dd hh:mm")}}</p>
+        <p><font class="fc_grey">服务技师：</font>{{consumedService.employeeNickName}}</p>
+        <hr />
+        <p><font class="fc_grey">扣费方式：</font>{{consumedService.mode|toChargeMode}}</p>
+        <p><font class="fc_grey">扣费次数：</font>{{consumedService.time}}次</p>
+        <p><font class="fc_grey">服务备注：</font>{{consumedService.changeTimeReason}}</p>
+    </div>
+</div>
+<div id="foot_button" ng-if="(consumedService.consumedServiceStatusId==4||consumedService.consumedServiceStatusId==1)&&userId==consumedService.operatorId">
+    <a class="fc_blue" ng-if="consumedService.consumedServiceStatusId==4" href="#!/check_update/{{consumedServiceId}}">
+        修改
+    </a>
+    <a class="fc_red" ng-click="delete()">删除</a>
+</div>

@@ -1,0 +1,36 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div id="subhead" need-placeholder>
+    <div>
+        <img src="imgs/service_total_num.png" />
+        <span>今日已确认预约{{appointmentTodayCount}}个</span>
+    </div>
+</div>
+<div class="list" load-more="loadMore()" top="155" bottom="95" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="a in appointments">
+            <a href="#!/appointment/{{a.appointmentId}}" class="container col3">
+                <div class="col_2">
+                    <p>
+                        <img class="circle shrink_67" ng-src="{{a.userPicture|null:'imgs/no_pic100.jpg'}}">
+                    </p>
+                    <p>{{a.userNickName|null:"未填写"}}</p>
+                </div>
+                <div class="col_7">
+                    <p>
+                        <img class="shrink_17" src="imgs/record_time.png"><span>&nbsp;{{a.appointmentDate.format("YYYY-MM-dd hh:mm")}}</span>
+                    </p>
+                    <p>项目：{{a.serviceName}}</p>
+                    <p>技师：{{a.nickName}}</p>
+                </div>
+                <div class="col_3">
+                    <span class="appointment_status" ng-class="{'pending':a.appointmentStatusId==1,'success':a.appointmentStatusId==3,'reject':a.appointmentStatusId==2,'cancel':a.appointmentStatusId==5||a.appointmentStatusId==6,'completed':a.appointmentStatusId==4}">{{a.appointmentStatusId|toAppointmentStatus}}</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<no-data data="appointments"></no-data>
+<div id="foot_button" need-placeholder>
+    <a class="fc_white bgc_blue">待处理预约</a>
+    <a href="#!/appointments_completed">已完成预约</a>
+</div>

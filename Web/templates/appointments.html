@@ -1,0 +1,34 @@
+<div class="service_record_time">
+    <div class="service_record_time_left" ng-click="previousMonth()">
+        <img src="imgs/arrow_to2.png" /><span>上一月</span>
+    </div>
+    <div class="service_record_time_title">
+        {{date.format("YYYY年MM月")}}
+    </div>
+    <div class="service_record_time_right" ng-click="nextMonth()">
+        <span>下一月</span><img src="imgs/arrow_to.png" />
+    </div>
+</div>
+<div class="service_record_list">
+    <ul>
+        <li ng-repeat="a in appointments" ng-show="appointments.length>0">
+            <a href="#!/appointment/{{a.appointmentId}}">
+                <div class="service_record_list_des">
+                    <div class="service_record_list_left">
+                        <p class="record_time">
+                            <img src="imgs/record_time.png" /><span>{{a.appointmentDate.format("YYYY-MM-dd hh:mm")}}</span></p>
+                        <p class="service_record_list_title"><span class="grey_word">项目：</span>{{a.serviceName}}</p>
+                        <p class="record_ji_shi"><span class="grey_word">技师：</span>{{a.nickName}}</p>
+                    </div>
+                    <div class="service_record_list_right" ng-class="{'appointment_pending':a.appointmentStatusId==1,'appointment_success':a.appointmentStatusId==3,'appointment_reject':a.appointmentStatusId==2,'appointment_cancel':a.appointmentStatusId==5||a.appointmentStatusId==6,'appointment_completed':a.appointmentStatusId==4}">
+                        <i></i><span>{{a.appointmentStatusId|toAppointmentStatus}}</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>
+<div class="none_data" ng-show="appointments.length==0">
+    <img src="imgs/none_data.png" />
+</div>

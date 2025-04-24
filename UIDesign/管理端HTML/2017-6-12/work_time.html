@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作时间</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/branch.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="service_record_time">
+        <div class="service_record_time_left">
+            <img src="imgs/arrow_to2.png"/><span>上一月</span>
+        </div>
+        <div class="service_record_time_title">
+            2016年12月
+        </div>
+        <div class="service_record_time_right">
+            <span>下一月</span><img src="imgs/arrow_to.png"/>
+        </div>
+    </div>
+    <div class="clock_day_list clock2">
+        <ul>
+            <li>
+                <p class="clock_day_list_week">一</p>
+                <p class="clock2_day">10</p>
+            </li>
+            <li>
+                <p class="clock_day_list_week">二</p>
+                <p class="clock2_day">11</p>
+                <p class="clock2_ci">休息</p>
+            </li>
+            <li class="week_current">
+                <p class="clock_day_list_week">三</p>
+                <p class="clock2_day">今日</p>
+                <p class="clock2_ci">6次</p>
+            </li>
+            <li>
+                <p class="clock_day_list_week">四</p>
+                <p></p>
+            </li>
+            <li>
+                <p class="clock_day_list_week">五</p>
+                <p></p>
+            </li>
+            <li>
+                <p class="clock_day_list_week">六</p>
+                <p></p>
+            </li>
+        </ul>
+    </div>
+    <div class="clock_day_bg">
+        <div class="clock_day_time">
+            <ul>
+                <li>
+                    <p class="clock_day_time_top">09:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">09:30</p>
+                    <p>可预约</p>
+                </li>
+                <li class="time_current">
+                    <p class="clock_day_time_top">10:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">10:30</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">11:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">11:30</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">12:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">12:30</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">13:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">13:30</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">14:00</p>
+                    <p>可预约</p>
+                </li>
+                <li class="time_already">
+                    <p class="clock_day_time_top">14:30</p>
+                    <p>已预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">15:00</p>
+                    <p>可预约</p>
+                </li>
+                <li class="time_already">
+                    <p class="clock_day_time_top">15:30</p>
+                    <p>已预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">16:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">16:30</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">17:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">17:30</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">18:00</p>
+                    <p>可预约</p>
+                </li>
+                <li>
+                    <p class="clock_day_time_top">18:30</p>
+                    <p>可预约</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="person_info_sub">
+        <p>修改时间状态</p>
+        <a href="time_change.html" class="href_to"></a>
+    </div>
+    <script type="text/javascript" src="js/choose_day.js"></script>
+    <script>
+        //选择时间
+        $(".clock_day_time ul li").each(function(){
+            var _this=$(this);
+            _this.click(function(){
+                if(_this.attr("class")==undefined || _this.attr("class")==""){
+                    console.log("123");
+                    _this.parent().find("li").not(".time_already").attr("class","");
+                    _this.attr("class","time_current");
+                }else{
+
+                }
+            })
+        });
+    </script>
+</body>
+</html>

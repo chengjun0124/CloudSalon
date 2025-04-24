@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择服务</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/branch.css"/>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="purchased_service_list cho_ser" style="margin-bottom:120px;">
+        <ul>
+            <li>
+                <div class="service_cho s_cho">
+                    <div class="purchased_service_list_img service_image">
+                        <a href="javascript:;"><img src="imgs/tu_o.png"></a>
+                    </div>
+                    <div class="purchased_service_list_txt service_text">
+                        <p class="purchased_service_list_title">特色背部单人SPA套餐特色背部</p>
+                        <p>服务类型：美白祛斑</p>
+                        <p>服务价格：¥1300</p>
+                        <p>购买人数：120人</p>
+                    </div>
+					<div class="cho_gou"><img src="imgs/success.png"/></div>
+                </div>
+            </li>
+            <li>
+                <div class="service_cho">
+                    <div class="purchased_service_list_img service_image">
+                        <a href="javascript:;"><img src="imgs/tu_o.png"></a>
+                    </div>
+                    <div class="purchased_service_list_txt service_text">
+                        <p class="purchased_service_list_title">特色背部单人SPA套餐特色背部</p>
+                        <p>服务类型：美白祛斑</p>
+                        <p>服务价格：¥1300</p>
+                        <p>购买人数：120人</p>
+                    </div>
+					<div class="cho_gou"><img src="imgs/success.png"/></div>
+                </div>
+            </li>
+			<li>
+                <div class="service_cho">
+                    <div class="purchased_service_list_img service_image">
+                        <a href="javascript:;"><img src="imgs/tu_o.png"></a>
+                    </div>
+                    <div class="purchased_service_list_txt service_text">
+                        <p class="purchased_service_list_title">特色背部单人SPA套餐特色背部</p>
+                        <p>服务类型：美白祛斑</p>
+                        <p>服务价格：¥1300</p>
+                        <p>购买人数：120人</p>
+                    </div>
+					<div class="cho_gou"><img src="imgs/success.png"/></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+	<div class="person_info_sub">
+        <p>提交</p>
+    </div>
+	<script>
+		$(".service_cho").click(function(){
+			$(this).parent().siblings().find(".cho_gou").css("opacity","0");
+			$(this).parent().siblings().find(".service_cho").attr("class","service_cho");
+			$(this).addClass("s_cho");
+			$(this).find(".cho_gou").css("opacity","1");
+		})
+	</script>
+</body>
+</html>

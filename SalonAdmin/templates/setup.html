@@ -1,0 +1,46 @@
+<div id="head" need-placeholder>设置</div>
+<div class="content container bgc_grey2">
+    <div class="col_3">
+        <img class="shrink_87" ng-src="{{employee.picture|null:'imgs/no_pic130.jpg'}}"></div>
+    <div class="col_8">
+        <p>账号：{{employee.mobile}}</p>
+        <p>昵称：{{employee.nickName}}</p>
+        <p class="fs_s fc_grey">账号身份：{{employee.userTypeId|toUserType}}</p>
+        <p class="fs_s fc_grey">注册时间：{{employee.createdDate.format("YYYY-MM-dd")}}</p>
+    </div>
+    <div class="col_1 ta_r as_s">
+        <a href="#!/profile">
+            <img class="shrink_18" src="imgs/info_edit.png" /></a>
+    </div>
+</div>
+<div class="list big">
+    <ul>
+        <li ng-if="userTypeId==4||userTypeId==5" class="container">
+            <div class="col_1">
+                <img class="shrink_22" src="imgs/d.png">
+            </div>
+            <div class="col_10">
+                公众号设置信息
+            </div>
+            <div class="col_1 ta_r">
+                <img src="imgs/arrow_to.png">
+            </div>
+        </li>
+        <li>
+            <a href="#!/aboutus" class="container">
+                <div class="col_1">
+                    <img class="shrink_23" src="imgs/ner5.png">
+                </div>
+                <div class="col_10">
+                    关于我们
+                </div>
+                <div class="col_1 ta_r">
+                    <img src="imgs/arrow_to.png">
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<hr />
+<div class="content ta_c" ng-click="logout()">退出登录</div>
+<div id="foot_menu" ng-controller="foot" ng-include="footTemplate"></div>

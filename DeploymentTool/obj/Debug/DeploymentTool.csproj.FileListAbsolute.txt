@@ -1,0 +1,15 @@
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\DeploymentTool.exe.config
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\obj\Debug\DeploymentTool.csprojResolveAssemblyReference.cache
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\DeploymentTool.exe
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\DeploymentTool.pdb
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\CloudSalon.Common.dll
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\CCPRestSDK.dll
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\CloudSalon.Model.dll
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\EntityFramework.dll
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\CloudSalon.Common.pdb
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\CloudSalon.Model.pdb
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\EntityFramework.xml
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\obj\Debug\DeploymentTool.exe
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\obj\Debug\DeploymentTool.pdb
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\Newtonsoft.Json.dll
+E:\宝贝\集云美邦\CloudSalon\DeploymentTool\bin\Debug\Newtonsoft.Json.xml

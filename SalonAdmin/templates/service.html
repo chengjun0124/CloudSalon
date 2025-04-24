@@ -1,0 +1,67 @@
+<div id="head_share" ng-include="headerBackShareTemplate"></div>
+<div>
+    <img class="shrink_500" ng-show="service!=null" ng-src="{{service.subjectImage|null:'imgs/no_pic750.jpg'}}" />
+</div>
+<div class="content">
+    <p class="fs_xl">{{service.serviceName}}</p>
+    <div class="container padding_s" ng-if="isDiscount">
+        <div class="col_3"><span class="tag bgc_red fc_white fs_xs">女神价</span></div>
+        <div class="col_4 fc_grey fs_xxxs" ng-if="service.oncePriceOnSale==null">
+            暂无单次
+        </div>
+        <div class="col_4" ng-if="service.oncePriceOnSale!=null">
+            <span class="fc_red fs_xxxs va_baseline">¥</span><span class="fc_red fs_xl va_baseline">{{service.oncePriceOnSale}}</span><span class="fs_xxxs fc_grey va_baseline">/单次</span>
+        </div>
+        <div class="fc_grey fs_xxxs" ng-if="service.treatmentPriceOnSale==null">暂无疗程</div>
+        <div ng-if="service.treatmentPriceOnSale!=null">
+            <span class="fc_red fs_xxxs va_baseline">¥</span><span class="fc_red fs_xl va_baseline">{{service.treatmentPriceOnSale}}</span><span class="fs_xxxs fc_grey va_baseline">/疗程</span><span class="fs_xxxs fc_grey va_baseline" ng-if="service.treatmentTimeOnSale!=null">({{service.treatmentTimeOnSale}}次)</span><span class="fs_xxxs fc_grey va_baseline" ng-if="service.treatmentTimeOnSale==null">(无限制)</span>
+        </div>
+    </div>
+    <div class="container padding_s fs_xxxs" ng-class="{'td_lt':isDiscount}">
+        <div class="col_3"><span class="tag border_grey2 fs_xs">日常价</span></div>
+        <div class="col_4" ng-if="service.oncePrice==null">
+            暂无单次
+        </div>
+        <div class="col_4" ng-if="service.oncePrice!=null">
+            <span class="va_baseline" ng-class="{'fc_red':!isDiscount}">¥</span><span ng-class="{'fc_red':!isDiscount,'fs_xl':!isDiscount}" class="va_baseline">{{service.oncePrice}}</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline">/单次</span>
+        </div>
+        <div ng-if="service.treatmentPrice==null">暂无疗程</div>
+        <div ng-if="service.treatmentPrice!=null">
+            <span class="va_baseline" ng-class="{'fc_red':!isDiscount}">¥</span><span ng-class="{'fc_red':!isDiscount,'fs_xl':!isDiscount}" class="va_baseline">{{service.treatmentPrice}}</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline">/疗程</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline" ng-if="service.treatmentTime!=null">({{service.treatmentTime}}次)</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline" ng-if="service.treatmentTime==null">(无限制)</span>
+        </div>
+    </div>
+    <div class="container fs_xs">
+        <p class="col_7">服务类型：{{service.serviceTypeName}}</p>
+        <p>
+            疼痛指数：<font ng-if="service.pain==0">无疼痛</font>
+            <img ng-repeat="x in painStars" src="../imgs/star.png" class="shrink_17 va_baseline" />
+        </p>
+    </div>
+    <div class="container fs_xs">
+        <p class="col_7">服务时长：{{service.duration}}分钟</p>
+        <p>美丽周期：间隔{{service.treatmentInterval}}天</p>
+    </div>
+    <p class="fs_xs">适用人群：{{service.suitablePeople}}</p>
+    <p class="fs_xs">美容功效：<span class="tag border_orange fc_orange" ng-repeat="tag in service.functionalityTags">{{tag}}</span></p>
+    <hr />
+    <p>
+        <iframe html-editor="false" ng-model="service.detail"></iframe>
+    </p>
+    <hr />
+    <p class="fs_xs">效果展示</p>
+    <div class="list_h">
+        <ul>
+            <li ng-repeat="img in service.effectImages">
+                <img class="shrink_130" ng-src="{{img.smallImage}}" />
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="foot_button" need-placeholder ng-if="userTypeId==4||userTypeId==5">
+    <a ng-click="deleteService()">
+        <img src="imgs/s_delete.png">&nbsp;<span>删除</span>
+    </a>
+    <a class="fc_orange" href="#!/service_edit/{{service.serviceId}}">
+        <img src="imgs/tt_orange.png">&nbsp;<span>编辑</span>
+    </a>
+</div>

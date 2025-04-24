@@ -1,0 +1,73 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="content bgc_grey2">
+    亲，为了能够使您的顾客通过微信公众账号实现查看、预约、购买等功能，您必须带微信公众平台绑定本系统！
+</div>
+<div class="content">
+    <p class="fc_blue">
+        <img class="shrink_15" src="imgs/bind_title.png" />
+        <span>微信端网址</span>
+    </p>
+    <p>在线预约</p>
+    <div class="container">
+        <div class="col_10">
+            <input class="border_grey2" id="txt_appointment_url" value="{{FRONTENDURL}}?identitycode={{identityCode}}#!/appointments_pending">
+        </div>
+        <div class="col_2 ta_r">
+            <span class="tag border_grey2 bgc_grey fc_grey" ng-click="copyURL('txt_appointment_url','在线预约')">复制</span>
+        </div>
+    </div>
+    <p>惠美丽</p>
+    <div class="container">
+        <div class="col_10">
+            <input class="border_grey2" id="txt_services_url" value="{{FRONTENDURL}}?identitycode={{identityCode}}#!/services"></div>
+        <div class="col_2 ta_r"><span class="tag border_grey2 bgc_grey fc_grey" ng-click="copyURL('txt_services_url','惠美丽')">复制</span></div>
+    </div>
+    <p>我</p>
+    <div class="container">
+        <div class="col_10">
+            <input class="border_grey2" id="txt_my_url" value="{{FRONTENDURL}}?identitycode={{identityCode}}#!/usercenter"></div>
+        <div class="col_2 ta_r"><span class="tag border_grey2 bgc_grey fc_grey" ng-click="copyURL('txt_my_url','我的')">复制</span></div>
+    </div>
+</div>
+<hr />
+<div class="content">
+    <p class="fc_blue">
+        <img class="shrink_15" src="imgs/bind_title.png" />
+        <span>公众号设置</span>
+    </p>
+    <p>第一步：登录微信平台</p>
+    <p>登录微信公众管理平台  https://mp.weixin.qq.com</p>
+    <br />
+    <p>第二步：自定义菜单</p>
+    <p>1.点击左侧菜单“自定义菜单”，如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_140" src="imgs/bind1.png" /></p>
+    <br />
+    <p>2.点击右侧手机图形中“添加菜单”按钮，如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_220" src="imgs/bind2.png" /></p>
+    <br />
+    <p>3.输入第一个菜单名称“在线预约”，如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_393" src="imgs/bind3.png" /></p>
+    <br />
+    <p>4.绑定链接地址</p>
+    <p>点击“跳转网页”,如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_393" src="imgs/bind4.png" /></p>
+    <p>拷贝粘贴“在线预约”到“页面地址”输入框，如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_371" src="imgs/bind5.png" /></p>
+    <p>完成第一个菜单的添加。</p>
+    <br />
+    <p>继续添加第二个菜单，点击左侧手机图形中的“+”如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_216" src="imgs/bind6.png" /></p>
+    <p>同上，添加“惠美丽”与第三个菜单“我”，分别粘贴对应链接，如下图：</p>
+    <p class="ta_c">
+        <img class="shrink_217" src="imgs/bind7.png" /></p>
+    <p>点击“保存与发布按钮”，完成公众号绑定！</p>
+</div>
+<div id="foot_button" need-placeholder>
+    <a class="fc_blue" href="#!/help_saloninfo">下一步</a>
+</div>

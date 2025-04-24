@@ -1,0 +1,47 @@
+<div class="menu_yd">
+    <div class="menu_yd_left">
+        <li>
+            <img ng-src="imgs/all_a.png" ng-show="selectedType.serviceTypeId==null">
+            <img ng-src="imgs/service_type{{selectedType.serviceTypeId}}_a.png" ng-show="selectedType.serviceTypeId!=null">
+        </li>
+        <li>{{selectedType.serviceTypeName}}</li>
+    </div>
+    <div class="menu_yd_right" ng-click="showServiceTypes()">
+        <li>更多分类</li>
+        <li>
+            <img src="imgs/tubiao_sj.png"></li>
+    </div>
+</div>
+<div class="project_list" load-more="loadMore()" top="110" bottom="101" load-more-css="load_more" page-size="PAGESIZE" data="dataForLoadMore">
+    <!--load more-->
+    <ul>
+        <li ng-repeat="s in services">
+            <a href="#!/service/{{s.serviceId}}">
+                <div class="project_list_div">
+                    <div class="project_list_img">
+                        <img ng-src="{{s.smallSubjectImage|null:'imgs/no_pic210.jpg'}}" />
+                    </div>
+                    <div class="project_list_txt">
+                        <p class="project_list_name">
+                            {{s.serviceName}}
+                        </p>
+                        <p class="project_list_time">服务时长：{{s.duration}}分钟</p>
+                        <p class="project_list_use">
+                            <span class="">美容功效：</span><span class="tag fs_xxs border_orange fc_orange" ng-repeat="tag in s.functionalityTags">{{tag}}</span>
+                        </p>
+                        <p class="project_list_price">
+                            <span class="project_list_price_left price_degree" ng-if="s.oncePrice==null">暂无单次</span>
+                            <span class="project_list_price_left" ng-if="s.oncePrice!=null"><span class="price_icon">¥</span>{{s.oncePrice}}<span class="price_degree">/单次</span></span>
+                            <span class="project_list_price_right price_degree" ng-if="s.treatmentPrice==null">暂无疗程</span>
+                            <span class="project_list_price_right" ng-if="s.treatmentPrice!=null"><span class="price_icon">¥</span>{{s.treatmentPrice}}<span class="price_degree">/疗程<span ng-if="s.treatmentTime!=null">({{s.treatmentTime}}次)</span><span ng-if="s.treatmentTime==null">(无限制)</span></span></span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="none_data" ng-show="services.length==0">
+    <img src="imgs/none_data.png" />
+</div>
+<div class="footer_menu" ng-controller="foot" ng-include="footTemplate"></div>

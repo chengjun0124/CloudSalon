@@ -1,0 +1,166 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="list big">
+    <ul>
+        <li upload-image cut-width="750" cut-height="500" recieve-image="receiveDataURL">
+            <div class="container padding">
+                <div class="col_3">服务图片</div>
+                <div class="col_9 ta_r">
+                    <img src="../imgs/arrow_to.png" />
+                </div>
+            </div>
+            <div class="ta_c">
+                <img class="shrink_450" ng-src="{{subjectImage|null:'imgs/no_pic750.jpg'}}" />
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                服务名称
+            </div>
+            <div class="col_7">
+                <input type="text" id="txt_serviceName" ng-model="service.serviceName">
+            </div>
+        </li>
+        <li class="container" id="li_type">
+            <div class="col_3">
+                服务类别
+            </div>
+            <div class="col_7 fc_grey" opener="li_type" selector is-multiple="false" item-text="serviceTypeName" item-value="serviceTypeId" items="serviceTypes" ng-model="service.serviceTypeId">
+            </div>
+            <div class="col_2 ta_r">
+                <img src="../imgs/arrow_to.png" />
+            </div>
+        </li>
+        <li class="container" id="li_pain">
+            <div class="col_3">
+                疼痛指数
+            </div>
+            <div class="col_7 fc_grey" opener="li_pain" selector is-multiple="false" item-text="text" item-value="value" dialog-class-name="ngdialog-theme-star" items="pains" ng-model="service.pain"></div>
+            <div class="col_2 ta_r">
+                <img src="../imgs/arrow_to.png" />
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                服务时长
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.duration">
+            </div>
+            <div class="col_2 ta_r">分钟</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                单次价格
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.oncePrice">
+            </div>
+            <div class="col_2 ta_r">元/次</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                疗程价格
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.treatmentPrice">
+            </div>
+            <div class="col_2 ta_r">元/疗程</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                疗程间隔
+            </div>
+            <div class="col_7">
+                <input id="rest_time" type="text" ng-model="service.treatmentInterval">
+            </div>
+            <div class="col_2 ta_r">天</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                疗程次数
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.treatmentTime" placeholder="无限制">
+            </div>
+            <div class="col_2 ta_r">次</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                优惠单价
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.oncePriceOnSale">
+            </div>
+            <div class="col_2 ta_r">元/次</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                优惠疗程价
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.treatmentPriceOnSale">
+            </div>
+            <div class="col_2 ta_r">元/疗程</div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                优惠疗程次数
+            </div>
+            <div class="col_7">
+                <input type="text" ng-model="service.treatmentTimeOnSale" placeholder="无限制">
+            </div>
+            <div class="col_2 ta_r">次</div>
+        </li>
+        <li>
+            <p>
+                美容功效
+            </p>
+            <div class="padding">
+                <span class="tag border_orange fc_orange" ng-repeat="tag in service.functionalityTags">{{tag}} <a class="cur_pointer" ng-click="deleteTag($index)">×</a></span>
+            </div>
+            <div>
+                <input type="text" class="border_grey2" ng-model="inputedTag" maxlength="5" keys="[13,32]" enter="inputTag()" placeholder="标签用空格或回车分隔，最多5个">
+                <span class="tag fs_min bgc_grey cur_pointer" ng-repeat="tag in serviceTypeTags" ng-click="addTag(tag)">{{tag}}</span>
+            </div>
+        </li>
+        <li>
+            <p>适用人群</p>
+            <textarea ng-model="service.suitablePeople"></textarea>
+        </li>
+        <li>
+            <p>服务详情</p>
+            <iframe html-editor="true" ng-model="service.detail"></iframe>
+        </li>
+        <li>
+            <div class="container">
+                <div class="col_11">效果展示</div>
+                <div class="col_1 ta_r" upload-image cut-width="650" cut-height="450" recieve-image="receiveEffectImageDataURL">
+                    添加
+                </div>
+            </div>
+            <div class="list_h">
+                <ul>
+                    <li ng-repeat="img in service.effectImages">
+                        <img ng-click="deleteEffectImage($index)" class="shrink_130" ng-src="{{img.smallImage}}" />
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="container">
+                <div class="col_3">
+                    排序设置
+                </div>
+                <div class="col_7">
+                    <input maxlength="6" type="text" ng-model="service.seq" placeholder="请输入排序号">
+                </div>
+            </div>
+            <div class="fc_grey">
+                设置该项服务在用户端显示的顺序，数字越大，排序越靠前，如果对顺序没有要求则可留空。
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="foot_button" need-placeholder>
+    <a class="fc_blue" ng-click="submit()">提交</a>
+</div>

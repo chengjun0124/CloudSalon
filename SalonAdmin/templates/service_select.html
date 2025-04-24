@@ -1,0 +1,23 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="list" load-more="loadMore()" top="77" bottom="95" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="s in services" class="container col3" ng-class="{'border_blue':selectedService==s}" ng-click="selectService(s)" validation="required" fieldname="服务" ng-model="selectedService">
+            <div class="col_4">
+                <img class="shrink_140" ng-src="{{s.smallSubjectImage|null:'imgs/no_pic210.jpg'}}">
+            </div>
+            <div class="col_7">
+                <p class="purchased_service_list_title">{{s.serviceName}}</p>
+                <p>服务类型：{{s.serviceTypeName}}</p>
+                <p>服务价格：<span ng-if="s.oncePrice==null">暂无单次&nbsp;</span><span ng-if="s.oncePrice!=null">¥{{s.oncePrice}}/单次&nbsp;</span><span ng-if="s.treatmentPrice==null">暂无疗程</span><span ng-if="s.treatmentPrice!=null">¥{{s.treatmentPrice}}/疗程</span></p>
+                <p>服务时长：{{s.duration}}分钟</p>
+            </div>
+            <div class="col_1 ta_l" ng-show="selectedService==s">
+                <img class="shrink_27" src="imgs/selected01.png" />
+            </div>
+        </li>
+    </ul>
+</div>
+<no-data data="services"></no-data>
+<div id="foot_button" need-placeholder validate-click="submit()">
+    <a class="fc_blue">提交</a>
+</div>

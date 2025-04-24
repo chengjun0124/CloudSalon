@@ -1,0 +1,1 @@
+﻿UPDATE ServiceTypes SET ServiceTypeName='理疗排毒' WHERE ServiceTypeName='排毒排寒'

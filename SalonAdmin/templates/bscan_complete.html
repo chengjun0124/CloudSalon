@@ -1,0 +1,25 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="content big bgc_no">
+    <p class="ta_c">
+        <img class="shrink_107" src="imgs/success.png" /></p>
+    <p class="ta_c padding">本次服务完成扣除1次</p>
+    <div class="container">
+        <div class="col_6 fc_grey ta_r">
+            <p>服务名称：</p>
+            <p>套餐总量：</p>
+            <p>服务已做：</p>
+            <p>服务剩余：</p>
+            <p>本次美容师：</p>
+        </div>
+        <div class="col_6">
+            <p>{{purchasedService.serviceName}}</p>
+            <p>{{purchasedService|toServiceTime}}</p>
+            <p>{{purchasedService|toConsumedTime}}</p>
+            <p><span ng-if="purchasedService.time==null">无限制</span><span ng-if="purchasedService.time!=null">{{purchasedService|toRemainTime}}次</span></p>
+            <p>{{purchasedService|toLastConsumedBeautician}}</p>
+        </div>
+    </div>
+</div>
+<div id="foot_button" need-placeholder>
+    <a class="fc_blue" href="#!/appointments">完成</a>
+</div>

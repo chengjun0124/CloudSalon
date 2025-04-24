@@ -1,0 +1,37 @@
+<div class="server_detail">
+    <div class="server_detail_tit">
+        <div class="server_detail_tit_img">
+            <img ng-src="{{purchasedService.smallSubjectImage|null:'imgs/no_pic210.jpg'}}"></div>
+        <div class="server_detail_tit_txt">
+            <ul>
+                <li style="font-size: 28px;">{{purchasedService.serviceName}}</li>
+                <li style="font-size: 24px; margin-top: 10px; color: #999999;">美丽周期：{{purchasedService.interval|toInterval}}</li>
+                <li style="font-size: 24px; color: #999999;">上次时间：{{purchasedService|toLastConsumedDate}}</li>
+                <li style="font-size: 24px; color: #999999;">建议时间：{{getSuggestedDate()}}</li>
+            </ul>
+        </div>
+        <div class="server_detail_tit_right" style="float: right; margin-top: 110px"><span>实付 ￥</span><span style="font-size: 32px; color: #e42f2f;">{{purchasedService.payment}}</span></div>
+    </div>
+    <div class="server_record_tit">
+        <div class="server_record_tit_left">
+            <img src="imgs/tubiao_list1.png" style="vertical-align: -10%;">
+            服务记录</div>
+        <div class="server_record_tit_right" ng-if="purchasedService.time!=null">共 <span style="font-size: 28px;">{{purchasedService.time}}</span> 次&#12288;&#8194;余 <span style="font-size: 28px; color: #e42f2f;">{{getRemainTime()}}</span> 次</div>
+        <div class="server_record_tit_right" ng-if="purchasedService.time==null" style="font-size:28px;">次数：无限制</div>
+    </div>
+</div>
+<div class="server_record_jg">
+    <div class="server_list_con" ng-repeat="cs in purchasedService.consumedServices">
+        <div class="server_list_con_top">
+            <li class="server_list_bg">{{purchasedService.consumedServices.length-$index}}</li>
+            <li>{{cs.createdDate.format("YYYY-MM-dd hh:mm")}}</li>
+        </div>
+        <div class="sever_list_con_xq">
+            <li>服务技师：{{cs.employeeNickName}}</li>
+            <li>消费次数：{{cs.time}}次</li>
+            <li>是否预约：{{cs.isAppoint?"预约":"非预约"}}</li>
+            <li>结账方式：{{cs.mode|toChargeMode}}</li>
+            <li>当前状态：{{cs.consumedServiceStatusId|toConsumeStatus}}</li>
+        </div>
+    </div>
+</div>

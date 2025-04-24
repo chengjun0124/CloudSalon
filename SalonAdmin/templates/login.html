@@ -1,0 +1,30 @@
+<div id="login">
+    <div class="banner">
+        <img src="imgs/logo2.png" />
+    </div>
+    <div class="list nohr bgc_no">
+        <ul>
+            <li class="container">
+                <div class="col_2 ta_c">
+                    <img class="shrink_27" src="imgs/login_name.png" />
+                </div>
+                <div class="col_9">
+                    <input name="fill_name" style="background: rgba(0,0,0,0);" enter="focusPwd()" ng-model="mobile" maxlength="11" placeholder="请输入手机号码">
+                </div>
+            </li>
+            <li class="container">
+                <div class="col_2 ta_c">
+                    <img class="shrink_25" src="imgs/login_password.png" />
+                </div>
+                <div class="col_9">
+                    <input type="password" id="txt_password" enter="login()" name="fill_word" ng-model="password" maxlength="16" placeholder="请输入密码">
+                </div>
+            </li>
+            <li class="container jc_c">
+                <div ng-click="login()" class="col_10 button">
+                    登录
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="list big">
+    <ul>
+        <li class="container" upload-image cut-width="520" cut-height="600" recieve-image="receiveDataURL">
+            <div class="col_3">
+                照片
+            </div>
+            <div class="col_7">
+                <img class="shrink_87" ng-src="{{employee.smallPicture|null:'imgs/no_pic130.jpg'}}">
+            </div>
+            <div class="col_2 ta_r"><img src="../imgs/arrow_to.png" /></div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                姓名
+            </div>
+            <div class="col_7">
+                <input class="input_edit" type="text" placeholder="请输入姓名" ng-model="employee.name">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                密码
+            </div>
+            <div class="col_7">
+                <input class="input_edit" type="password" placeholder="{{isCreate?'请输入密码':'不改密码请留空'}}" ng-model="employee.password">
+            </div>
+        </li>
+        <li class="container">
+            <div class="col_3">
+                昵称
+            </div>
+            <div class="col_7">
+                <input class="input_edit" id="txt_nickName" placeholder="请输入昵称" type="text" ng-model="employee.nickName" />
+            </div>
+        </li>
+        <li class="container" id="li_dayoff">
+            <div class="col_3">
+                休息日
+            </div>
+            <div class="col_7 fc_grey" selector opener="li_dayoff" item-text="text" item-value="value" items="weekItems" is-multiple="true" ng-model="employeeDayOffs"></div>
+            <div class="col_2 ta_r"><img src="../imgs/arrow_to.png" /></div>
+        </li>
+        <li>
+            <p>简介</p>
+            <textarea ng-model="employee.description"></textarea>
+        </li>
+        <li class="container" ng-if="employee.userTypeId==4||employee.userTypeId==5">
+            <div class="col_3">
+                账号身份
+            </div>
+            <div class="col_7 fc_grey">
+                {{employee.userTypeId|toUserType}}
+                <br />设为美容师
+            </div>
+            <div class="col_2 ta_r"><slide-switch ng-model="employee.isBeautician"></slide-switch></div>
+        </li>
+    </ul>
+</div>
+<div ng-click="submit()" id="foot_button" need-placeholder>
+    <a class="fc_blue">提交</a>
+</div>

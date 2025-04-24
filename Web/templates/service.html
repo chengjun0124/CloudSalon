@@ -1,0 +1,74 @@
+<div ng-bind-html="aa"></div>
+<div class="service_detail">
+    <div class="service_detail_pic">
+        <img ng-show="service!=null" ng-src="{{service.subjectImage|null:'imgs/no_pic750.jpg'}}" />
+    </div>
+    <div class="service_detail_ds1">
+        <div class="detail_ds1_title">
+            <p>{{service.serviceName}}</p>
+        </div>
+        <div class="detail_ds1_title container" style="margin-top: 10px;" ng-if="isDiscount">
+            <div class="col_3"><span class="tag bgc_red fc_white fs_xs">女神价</span></div>
+            <div class="col_4 fc_grey fs_xxxs" ng-if="service.oncePriceOnSale==null">
+                暂无单次
+            </div>
+            <div class="col_4" ng-if="service.oncePriceOnSale!=null">
+                <span class="fc_red fs_xxxs va_baseline">¥</span><span class="fc_red fs_xl va_baseline">{{service.oncePriceOnSale}}</span><span class="fs_xxxs fc_grey va_baseline">/单次</span>
+            </div>
+            <div class="fc_grey fs_xxxs" ng-if="service.treatmentPriceOnSale==null">暂无疗程</div>
+            <div ng-if="service.treatmentPriceOnSale!=null">
+                <span class="fc_red fs_xxxs va_baseline">¥</span><span class="fc_red fs_xl va_baseline">{{service.treatmentPriceOnSale}}</span><span class="fs_xxxs fc_grey va_baseline">/疗程</span><span class="fs_xxxs fc_grey va_baseline" ng-if="service.treatmentTimeOnSale!=null">({{service.treatmentTimeOnSale}}次)</span><span class="fs_xxxs fc_grey va_baseline" ng-if="service.treatmentTimeOnSale==null">(无限制)</span>
+            </div>
+        </div>
+        <div class="detail_ds1_title container fs_xxxs" style="margin-top: 10px;" ng-class="{'td_lt':isDiscount}">
+            <div class="col_3"><span class="tag border_grey2 fs_xs">日常价</span></div>
+            <div class="col_4" ng-if="service.oncePrice==null">
+                暂无单次
+            </div>
+            <div class="col_4" ng-if="service.oncePrice!=null">
+                <span class="va_baseline" ng-class="{'fc_red':!isDiscount}">¥</span><span ng-class="{'fc_red':!isDiscount,'fs_xl':!isDiscount}" class="va_baseline">{{service.oncePrice}}</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline">/单次</span>
+            </div>
+            <div ng-if="service.treatmentPrice==null">暂无疗程</div>
+            <div ng-if="service.treatmentPrice!=null">
+                <span class="va_baseline" ng-class="{'fc_red':!isDiscount}">¥</span><span ng-class="{'fc_red':!isDiscount,'fs_xl':!isDiscount}" class="va_baseline">{{service.treatmentPrice}}</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline">/疗程</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline" ng-if="service.treatmentTime!=null">({{service.treatmentTime}}次)</span><span ng-class="{'fc_grey':!isDiscount}" class="va_baseline" ng-if="service.treatmentTime==null">(无限制)</span>
+            </div>
+        </div>
+        <div class="detail_ds1_title container" style="font-size: 24px; margin-top: 10px;">
+            <p class="col_7">服务类型：{{service.serviceTypeName}}</p>
+            <p>
+                疼痛指数：<font ng-if="service.pain==0">无疼痛</font>
+                <img ng-repeat="x in painStars" src="../imgs/star.png" />
+            </p>
+        </div>
+        <div class="detail_ds1_title container" style="font-size: 24px; margin-top: 0px;">
+            <p class="col_7">服务时长：{{service.duration}}分钟</p>
+            <p>美丽周期：间隔{{service.treatmentInterval}}天</p>
+        </div>
+        <div class="detail_ds1_title" style="font-size: 24px; margin-top: 0px;">适用人群：{{service.suitablePeople}}</div>
+        <div class="detail_ds1_title" style="font-size: 24px; margin-top: 0px;">美容功效：<span class="tag border_orange fc_orange" ng-repeat="tag in service.functionalityTags">{{tag}}</span></div>
+        <hr class="detail_ds1_title" />
+        <div class="detail_ds1_t1">
+            <iframe html-editor="false" ng-model="service.detail"></iframe>
+        </div>
+    </div>
+    <div class="service_detail_ds2">
+        <div class="detail_ds2_t1">
+            <p>效果展示</p>
+            <ul>
+                <li ng-repeat="img in service.effectImages"><a target="_blank" href="{{img.image}}">
+                    <img ng-src="{{img.smallImage}}" /></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="service_detail_appointment">
+        <a href="#!/service_appoint/{{serviceId}}" class="service_detail_footer_href"></a>
+        <div class="service_detail_footer_center"><span>预约</span><img src="imgs/to_go.png"></div>
+    </div>
+    <div class="guan_zhu_wechat" ng-if="showQRCode">
+        <p class="w1">查看更多服务项目，关注公众号：</p>
+        <p class="w2">
+            <img ng-src="{{service.qrCodePicture}}">
+        </p>
+        <p class="w3">长按二维码识别</p>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!--<div class="tip_left">
+    <img src="imgs/person.png" />
+</div>
+<div class="tip_right">
+    <p>{{ngDialogData.title}}</p>
+    <p ng-repeat="t in ngDialogData.contents">{{t}}</p>
+    <p class="tip_sure" ng-click="close()">确认</p>
+</div>
+<i class="tip_cha" ng-click="close()"></i>-->
+
+<p class="tan_title">提示</p>
+<p class="tan_txt">{{ngDialogData.content}}</p>
+<div class="tan_button" ng-if="ngDialogData.buttonCount==2">
+	<p class="button" ng-click="confirm()" style="float:left;">确认</p>
+	<p class="button" ng-click="close()" style="float: right;">取消</p>
+</div>
+<div class="tan_button" ng-click="close()" ng-if="ngDialogData.buttonCount==1">
+	<p class="button">确认</p>
+</div>
+		
+<div class="tan_close">
+	<img ng-click="close()" src="imgs/s_delete.png"/>
+</div>

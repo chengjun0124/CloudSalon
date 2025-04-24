@@ -1,0 +1,65 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="content container col3">
+    <div class="col_4">
+        <img class="shrink_140" ng-src="{{service.smallSubjectImage|null:'imgs/no_pic210.jpg'}}">
+    </div>
+    <div class="col_8">
+        <p>{{service.serviceName}}</p>
+        <p>服务类型：{{service.serviceTypeName}}</p>
+        <p>疼痛指数：<span ng-if="service.pain==0">无疼痛</span><img ng-repeat="x in painStars" src="../imgs/star.png" class="shrink_17 va_baseline" /></p>
+        <p>服务时长：{{service.duration}}分钟</p>
+        <p><span>美丽周期：</span><span ng-if="service.treatmentInterval==null">无约束</span><span ng-if="service.treatmentInterval!=null">间隔{{service.treatmentInterval}}天</span></p>
+    </div>
+</div>
+<hr />
+<div class="list big">
+    <ul>
+        <li ng-if="!isPreview">
+            <p class="padding">服务类型</p>
+            <div class="container" validation="required" fieldname="服务类型" ng-model="purchase.mode">
+                <div class="col_5 padding ta_c bgc_grey" ng-class="{'border_blue':purchase.mode==0}" ng-click="selectMode(0)">
+                    <span ng-if="service.oncePrice">
+                        <span class="fc_red fs_xxxs va_baseline">￥</span><span class="fc_red fs_xl va_baseline">{{service.oncePrice}}</span><span class="fs_xxs fc_grey va_baseline">/单次</span>
+                    </span>
+                    <span ng-if="!service.oncePrice">单次</span>
+                </div>
+                <div class="col_2"></div>
+                <div class="col_5 padding ta_c bgc_grey" ng-class="{'border_blue':purchase.mode==1}" ng-click="selectMode(1)">
+                    <span ng-if="service.treatmentPrice">
+                        <span class="fc_red fs_xxxs va_baseline">￥</span><span class="fc_red fs_xl va_baseline">{{service.treatmentPrice}}</span><span class="fs_xxs fc_grey va_baseline">/疗程<span class="va_baseline" ng-if="service.treatmentTime">({{service.treatmentTime}}次)</span><span class="va_baseline" ng-if="!service.treatmentTime">(无限制)</span></span>
+                    </span>
+                    <span ng-if="!service.treatmentPrice">疗程</span>
+                </div>
+            </div>
+        </li>
+        <li class="container" ng-if="!isPreview">
+            <div class="col_3">实付金额：</div>
+            <div class="col_8">
+                <input validation="required|||number:::2|||range:::1-9999999.99" fieldname="实付金额" maxlength="10" ng-model="purchase.payment" type="text" placeholder="输入折后实际收入金额，以便成本核算">
+            </div>
+            <div class="col_1">￥</div>
+        </li>
+        <li class="container" ng-if="!isPreview">
+            <div class="col_3">服务次数：</div>
+            <div class="col_8">
+                <input validation="number:::0|||range:::1-100" fieldname="服务次数" ng-model="purchase.time" type="text" placeholder="总服务次数含赠送，留空表示不限次数">
+            </div>
+            <div class="col_1">次</div>
+        </li>
+    </ul>
+</div>
+<div class="content" ng-if="isPreview">    
+    <p>服务类型：{{purchase.mode==0?"单次":"疗程"}}</p>
+    <div class="container">
+        <div class="col_11">实付金额：{{purchase.payment}}</div>
+        <div class="col_1">￥</div>
+    </div>
+    <div class="container">
+        <div class="col_11">服务次数：{{purchase.time==null||purchase.time==""?"不限次数":purchase.time}}</div>
+        <div class="col_1" ng-if="purchase.time">次</div>
+    </div>
+    <p>
+        <img class="shrink_27" src="imgs/tagging01.png"><span>&nbsp;收到现金后提交，提交后将确认购买成功，用户可直接消费！</span>
+    </p>    
+</div>
+<div id="foot_button" need-placeholder ng-controller="button_preview" ng-include="buttonPreviewTemplate"></div>

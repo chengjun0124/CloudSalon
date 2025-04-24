@@ -1,0 +1,26 @@
+<div class="notice_list">
+    <ul>
+        <li ng-repeat="cs in consumedServices">
+            <a href="#!/receipt/{{cs.consumedServiceId}}">
+                <div class="notice_list_l">
+                    <p class="notice_list_tit"><span>
+                        <img src="imgs/notice.png" style="vertical-align: -10%;"></span> 消费单</p>
+                    <p class="notice_list_con"><span class="notice_list_con_g">项目：</span>{{cs.serviceName}}</p>
+                    <p class="notice_list_con"><span class="notice_list_con_g">技师：</span>{{cs.employeeNickName}}</p>
+                    <p class="notice_list_con"><span class="notice_list_con_g">消费：</span>扣除{{cs.time}}次</p>
+                    <p class="notice_list_con"><span class="notice_list_con_g">时间：</span>{{cs.consumedDate.format("YYYY-MM-dd hh:mm")}}</p>
+                </div>
+                <div class="notice_list_r">
+                    <p><span>
+                        <img src="imgs/appointment_pending.png"></span> <span style="color: #e42f2f;">待处理</span></p>
+                </div>
+                <div class="line-fenge">
+                    <p></p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="none_data" ng-show="consumedServices.length==0">
+    <img src="imgs/none_data.png" />
+</div>

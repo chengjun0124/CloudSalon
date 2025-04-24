@@ -1,0 +1,369 @@
+/*用户详情*/
+body{
+    margin :auto 0;
+}
+.use_base{
+    background:#73dce6;
+    width:100%;
+    height:auto;
+    font-size: 26px;
+    color:#ebfbfd;
+    display: inline-block;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+.use_tx,.use_zl{
+    float:left;
+    margin-left:30px;
+
+}
+.use_zl li{
+    line-height:45px;
+}
+.use_base_bj{
+    width:27px;
+    float:right;
+    margin: 185px 30px auto auto;
+}
+.use_name{
+    color:#ffffff;
+    font-size:28px;
+}
+.buy_list {
+    width:100%;
+    background: #ffffff;
+    padding-top:25px;
+
+}
+.buy_list_top{
+    display:block;
+    padding-left:20px;
+}
+.buy_list_top li{
+    float:left;
+    font-size:28px;
+    height:30px;
+    line-height:30px;
+    margin-right:15px;
+}
+.buy_list_top_tj{
+    float:right;
+    margin-right:30px;
+    color:#999999;
+    font-size:24px;
+}
+.buy_list_con{
+    padding-top:30px;
+    display:inline-block;
+    width:100%;
+    padding-bottom:20px;
+}
+.server_list{
+    margin-top:20px;
+    width:100%;
+    display: inline-block;
+}
+.buy_list_con_tx{
+    float:left;
+    font-size: 22px;
+    margin-left: 12px;
+}
+.buy_list_con_tx li{
+
+}
+.buy_list_con_tx span{
+    color:#999999;
+}
+.buy_list_con_tit{
+    font-size:28px;
+    color:#4c4c4c;
+}
+.buy_list_con_img{
+    width:210px;
+    float:left;
+    margin-left:20px;
+}
+.buy_list_con_an{
+    float:right;
+    margin-right:30px;
+}
+.buy_list_con_an li{
+    line-height:55px;
+}
+.buy_list_line{
+    margin:auto 20px auto 20px;
+    background:#e5e5e5;
+    width:100%;
+    height:1px;
+}
+.buy_list_fenge{
+    width:100%;
+    height:15px;
+    background: #ebeff2;
+    margin-top:20px;
+}
+.server_list{
+    float:left;
+    display:inline-block;
+    width:100%;
+}
+.server_list_con{
+    margin-left: 20px;
+}
+.server_list_top{
+    font-size:28px;
+    display:inline-block;
+    width:100%;
+    float:left;
+}
+.server_list_con_top li{
+    display: inline-block;
+    height:40px;
+    line-height: 40px;
+    font-size:28px;
+    vertical-align: middle;
+}
+.server_list_top{
+    padding-bottom: 26px;
+    display:block;
+    width:100%;
+}
+.server_list_top li{
+    float:left;
+}
+.sever_list_con_xq{
+    border-left:1px solid #b3b3b3;
+    height:auto;
+    padding-left:29px;
+    margin-left:19px;
+    padding-bottom: 20px;
+    color:#999999;
+    font-size:24px;
+}
+.sever_list_con_xq li{
+    line-height:32px;
+}
+.footer_menu_one {
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top:1px solid #e6e6e6;
+    font-size:28px;
+    text-align:center;
+    line-height: 100px;
+}
+/*购买选择*/
+.buy_select_body{
+    background: #ffffff;
+    padding:30px 28px;
+}
+.buy_select_top{
+    width:100%;
+    display: inline-block;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.buy_select_top_img{
+    float:left;
+}
+.buy_select_top_txt{
+    float:left;
+    margin-left:25px;
+}
+.buy_select_top_txt li{
+    line-height:35px;
+}
+.buy_select_top_txt span{
+    font-size:24px;
+    color:#999999;
+}
+.buy_select_top_tit{
+    font-size: 28px;
+}
+.buy_select_type{
+    width:100%;
+    display: inline-block;
+    margin-top:20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.buy_select_type_xq{
+    width:100%;
+    margin-top:25px;
+}
+.buy_select_type_xq_left{
+    width:47%;
+    height:96px;
+    float:left;
+    background: #f2f2f2;
+    text-align: center;
+    line-height: 96px;
+}
+.buy_select_type_xq_left span{
+   color:#e42f2f;
+    font-size: 28px;
+}
+.buy_select_type_xq_right{
+    width:47%;
+    height:96px;
+    float:right;
+    background: #f2f2f2;
+    text-align: center;
+    line-height: 96px;
+}
+.buy_select_type_xq_right span{
+    color:#e42f2f;
+    font-size: 28px;
+}
+.service_selected{
+    border: 2px solid #77dce5;
+    z-index: 9999;
+    background: url(../imgs/selected01.png) no-repeat;
+    background-position: 95% 50%;
+}
+.buy_select_money{
+    width:100%;
+    height:45px;
+    line-height: 45px;
+    padding:30px 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+.buy_select_money input{
+    border:none;
+    outline:medium;
+    font-size: 24px;
+    width:500px;
+    color:#999999;
+    height:30px;
+}
+.buy_select_money_sr{
+     font-size:28px;
+     float:left;
+ }
+.buy_select_money_dw{
+    font-size:24px;
+    float:right;
+}
+.footer_menu_one {
+    width: 100%;
+    height: 100px;
+    line-height:100px;
+    text-align: center;
+    font-size: 28px;
+    color:#73dce6;
+}
+/*购买确认*/
+.buy_confirm_tit{
+    color:#999999;
+}
+.buy_confirm_tagging {
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    font-size:26px;
+    position:fixed;
+    bottom: 120px;
+}
+.buy_confirm_btn{
+    color:#77dce5;
+}
+/*弹出窗口*/
+html,body{
+    height:100%; width:100%; overflow:hidden; margin:0;
+    padding:0;
+}
+.pop_bg{
+    background-color:rgba(0, 0, 0, 0.6);
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+
+}
+.pop_window{
+    width:651px;
+    height:386px;
+    position:fixed;
+    margin:auto;
+    left: 0;
+    right:0;
+    top:25%;
+    background: url("../imgs/pop_window_bg.png") no-repeat;
+}
+.pop_window_tit{
+    width:100%;
+    height:91px;
+    line-height:91px;
+}
+.buy_confirm_tit_txt{
+    float:left;
+    font-size:28px;
+    margin-left:30px;
+}
+.buy_confirm_tit_close{
+    float:right;
+    margin-right:20px;
+}
+.pop_window_content{
+    font-size: 26px;
+    margin:35px 30px 25px 30px;
+    line-height: 30px;
+}
+.pop_window_content p{
+   text-indent: 50px;
+    line-height:50px;
+}
+.pop_window_btn{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    padding-top:20px;
+}
+/*服务详情页*/
+.server_detail{
+    background: #ffffff;
+    padding:30px 25px;
+    overflow:auto;
+}
+
+.server_detail_tit{
+    display:inline-block;
+    border-bottom:1px solid #ebeff2;
+    padding-bottom:25px;
+    width:100%;
+}
+.server_detail_tit_img{
+    float:left;
+}
+.server_detail_tit_txt{
+    float:left;
+    margin-left:20px;
+}
+.server_detail_tit_txt li{
+    line-height: 35px;
+}
+.server_record_tit{
+   padding-top:30px;
+    width:100%;
+    overflow:auto;
+}
+.server_record_tit_left{
+    float:left;
+    font-size:28px;
+}
+.server_record_tit_right{
+    float:right;
+}
+.server_record_jg{
+    margin-top:25px;
+}
+.server_list_bg{
+    background: url("../imgs/list_bg01.png");
+    width:40px;
+    text-align: center;
+    color:#999999;
+}

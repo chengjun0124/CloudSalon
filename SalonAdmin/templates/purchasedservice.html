@@ -1,0 +1,45 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="content container col3">
+    <div class="col_4">
+        <img class="subject" ng-src="{{purchasedService.smallSubjectImage|null:'imgs/no_pic210.jpg'}}">
+    </div>
+    <div class="col_5">
+        <p>{{purchasedService.serviceName}}</p>
+        <p>美丽周期：{{purchasedService.interval|toInterval}}</p>
+        <p>上次时间：{{purchasedService|toLastConsumedDate}}</p>
+        <p>建议时间：{{getSuggestedDate()}}</p>
+    </div>
+    <div class="col_3 as_e"><span class="fs_min va_baseline">实付￥</span><span class="fs_xl fc_red va_baseline">{{purchasedService.payment}}</span></div>
+</div>
+<div id="subhead_nofix">
+    <div>
+        <img class="shrink_15" src="imgs/tubiao_list1.png">
+        服务记录
+    </div>
+    <div ng-if="purchasedService.time!=null"><span class="fs_min va_baseline">共&nbsp;<span class="fs va_baseline">{{purchasedService.time}}</span>&nbsp;次&#12288;&#8194;余&nbsp;<span class="fs fc_red va_baseline">{{getRemainTime()}}</span>&nbsp;次</span></div>
+    <div ng-if="purchasedService.time==null">次数：无限制</div>
+</div>
+<div class="content bgc_grey2">
+    <ul>
+        <li ng-repeat="cs in purchasedService.consumedServices">
+            <div class="container">
+                <div class="col_1 ta_c fc_grey">
+                    <span class="tag_circle">{{purchasedService.consumedServices.length-$index}}</span></div>
+                <div>{{cs.createdDate.format("YYYY-MM-dd hh:mm")}}</div>
+            </div>
+            <div class="container ai_u">
+                <div class="col_1 vertical_hr"></div>
+                <div class="fc_grey">
+                    <p>服务技师：{{cs.employeeNickName}}</p>
+                    <p>消费次数：{{cs.time}}次</p>
+                    <p>是否预约：{{cs.isAppoint?"预约":"非预约"}}</p>
+                    <p>结账方式：{{cs.mode|toChargeMode}}</p>
+                    <p>当前状态：{{cs.consumedServiceStatusId|toConsumeStatus}}</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="foot_button" need-placeholder ng-if="purchasedService.time==null || getRemainTime()>0">
+    <a class="fc_blue" href="#!/check/{{purchasedService.purchasedServiceId}}/{{userId}}">结算</a>
+</div>

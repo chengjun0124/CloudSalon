@@ -1,0 +1,6 @@
+﻿IF NOT EXISTS (SELECT 1 FROM UserTypes WHERE UserTypeId = 5)
+BEGIN
+	INSERT INTO UserTypes
+	VALUES
+	(5,'SalonOwner')
+END

@@ -1,0 +1,24 @@
+<div class="header_pic">
+    <img ng-src="{{salon.picture|null:'imgs/no_pic675.jpg'}}">
+    <p class="header_name">{{salon.salonName}}</p>
+</div>
+<div class="shop_desc">
+    <div class="shop_desc_single">
+        <p><span class="grey_word">联系人</span> <span class="content">{{salon.contact}}</span></p>
+        <p><span class="grey_word">联系电话</span> <span class="content">{{salon.phone}}</span></p>
+        <p><span class="grey_word">技师数量</span> <span class="content">{{salon.beauticianCount}}</span></p>
+        <p><span class="grey_word">店铺地址</span> <span class="content">{{salon.salonAddress}}</span></p>
+        <p><span class="grey_word">工作时间</span> <span class="content">每天{{salon.openTime.format("hh:mm")}}-{{salon.closeTime.format("hh:mm")}}</span></p>
+    </div>
+    <div class="shop_desc_single">
+        <p>店铺介绍</p>
+        <p class="shop_desc_text_det">{{salon.description}}</p>
+    </div>
+    <div class="guan_zhu_wechat" ng-if="showQRCode">
+        <p class="w1">查看更多服务项目，关注公众号：</p>
+        <p class="w2">
+            <img ng-src="{{salon.qrCodePicture}}">
+        </p>
+        <p class="w3">长按二维码识别</p>
+    </div>        
+</div>

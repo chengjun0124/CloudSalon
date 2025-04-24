@@ -1,0 +1,34 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div class="list big">
+    <ul>
+        <li>
+            <img class="shrink_20" src="imgs/time_change.png">
+            <span>选择时间</span><span class="fc_blue">&nbsp;目前仅可对当天设置不可预约时间</span>
+        </li>
+        <li class="container" id="li_start">
+            <div class="col_11" opener="li_start" date-pickup ng-model="unavaiTime.startTime" date-type="time" placeholder="开始时间"></div>
+            <div class="col_1 ta_r"><img src="../imgs/arrow_to.png" /></div>
+        </li>
+        <li class="container" id="li_end">
+            <div class="col_11" opener="li_end" date-pickup ng-model="unavaiTime.endTime" date-type="time" placeholder="结束时间"></div>
+            <div class="col_1 ta_r"><img src="../imgs/arrow_to.png" /></div>
+        </li>
+    </ul>
+</div>
+<div class="list nohr bgc_grey2">
+    <ul>
+    <li ng-repeat="time in unavaiTimes" class="container">
+        <div class="col_11">
+            <span class="square_blue"></span>
+            <span>{{time.startTime.format("hh:mm")}}—{{time.endTime.format("hh:mm")}}
+            </span>
+        </div>
+        <div class="col_1">
+            <span ng-click="deleteUnavaiTime(time)">删除</span>
+        </div>
+    </li>    
+    </ul>
+</div>
+<div id="foot_button" need-placeholder ng-click="submit()">
+    <a class="fc_blue">提交</a>
+</div>

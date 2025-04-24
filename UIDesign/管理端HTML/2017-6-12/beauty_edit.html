@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑技师</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/branch.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="person_info">
+        <ul>
+            <li class="person">
+                <div class="person_info_left">
+                    <p>照片</p>
+                </div>
+                <div class="person_info_right tou_xiang">
+                    <img src="imgs/tu_o.png">
+                    <i class="to_chose"></i>
+                </div>
+            </li>
+            <p class="border_bg"></p>
+            <li>
+                <div class="person_info_left">
+                    <p>姓名</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="良辰美景">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>编号</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="12号">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>账号</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="13565421036">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>密码</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="123456（技师登录可自行修改）">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>休息</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" id="rest_time" type="text" value="周二" readonly>
+                </div>
+                <i class="to_chose"></i>
+            </li>
+            <li class="area_edit_li">
+                <p class="area_edit_title">简介</p>
+                <textarea class="input_edit area_edit">8年美容从业经验，高级美，熟悉各种护理和保健手法，具有运用中医辨证论治和医学美容技能进行临床诊疗和医疗</textarea>
+            </li>
+        </ul>
+    </div>
+    <div class="set_to">
+        <p>设为店长</p>
+    </div>
+    <div class="person_info_sub">
+        <p>提交</p>
+    </div>
+    <div class="fileMask"></div>
+    <div class="picker-modal">
+        <p class="picker-item">请选择</p>
+        <div class="picker-item picker-selected" picker-value="周一">周一</div>
+        <div class="picker-item" picker-value="2">周二</div>
+        <div class="picker-item" picker-value="3">周三</div>
+        <div class="picker-item" picker-value="4">周四</div>
+    </div>
+    <script src="js/picker.js"></script>
+</body>
+</html>

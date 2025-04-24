@@ -1,0 +1,23 @@
+<ul>
+    <li>
+        <div class="menu-pic">
+            <a href="#!/appointments_pending">
+                <img ng-src="{{myAppointmentsImg}}"></a>
+        </div>
+        <div class="menu-name" ng-class="{'active':isMyAppointmentsActive==true}"><a href="#!/appointments_pending">预约</a></div>
+    </li>
+    <li>
+        <div class="menu-pic">
+            <a href="#!/services">
+                <img ng-src="{{servicesImg}}"></a>
+        </div>
+        <div class="menu-name" ng-class="{'active':isServicesActive==true}"><a href="#!/services">惠美丽</a></div>
+    </li>
+    <li>
+        <div class="menu-pic">
+            <a href="#!/usercenter">
+                <img ng-src="{{personCenterImg}}"></a>
+        </div>
+        <div class="menu-name" ng-class="{'active':isPersonCenterActive==true}"><a href="#!/usercenter">我的</a></div>
+    </li>
+</ul>

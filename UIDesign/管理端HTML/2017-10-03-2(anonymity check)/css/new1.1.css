@@ -1,0 +1,23 @@
+/*匿名买单—服务技师选择*/
+
+.inu_shuru_d{
+    border-bottom: 1px solid #999999;
+    background: #999999;
+    width:100%;
+}
+.select_server_money{
+    font-size:28px;
+    margin-top:30px;
+    margin-bottom:30px;
+    overflow: hidden;
+}
+.select_server_money_inu{
+    float:left;
+}
+.select_server_money_dw{
+    float:right;
+}
+.select_data_xg li{
+    margin-top:35px;
+}
+/*匿名买单-确认结算*/

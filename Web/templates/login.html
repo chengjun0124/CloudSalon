@@ -1,0 +1,25 @@
+<!--<div class="wechat_kuang">
+    <input id="mobile" maxlength="11" ng-model="mobile" /><input type="button" value="get code" ng-click="sendValidCode()" />
+    <input id="code" ng-model="code" />
+    <div>{{msg}}</div>
+    <input type="button" value="登录" ng-click="login()" />
+</div>-->
+<div class="login_bg">
+    <div class="login_logo">
+        <img src="imgs/logo2.png" />
+    </div>
+    <div class="login_fill">
+        <div class="login_fill_name">
+            <img src="imgs/login_name.png" />
+            <input class="fill_input"  ng-model="mobile" enter="sendValidCode()" maxlength="11" placeholder="请输入手机号码">
+        </div>
+        <div class="login_fill_word">
+            <img src="imgs/login_password.png" />
+            <input class="fill_input" ng-model="code" maxlength="4" enter="login()" placeholder="验证码">
+            <span class="get_code" ng-click="sendValidCode()">获取验证码</span>
+        </div>
+        <div ng-click="login()" class="login_button">
+            <p>登录</p>
+        </div>
+    </div>
+</div>

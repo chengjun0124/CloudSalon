@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0060E47-D770-467A-84B4-54DCD0248BE5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SalonAdmin</RootNamespace>
+    <AssemblyName>SalonAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\manage_style.css">
+      <DependentUpon>manage_style.less</DependentUpon>
+    </Content>
+    <Content Include="css\manage_style.min.css">
+      <DependentUpon>manage_style.less</DependentUpon>
+    </Content>
+    <Content Include="css\ngDialog-theme-default.css" />
+    <Content Include="css\ngDialog-theme-default.min.css">
+      <DependentUpon>ngDialog-theme-default.css</DependentUpon>
+    </Content>
+    <Content Include="css\ngDialog.css" />
+    <Content Include="css\ngDialog.min.css" />
+    <Content Include="default.aspx" />
+    <Content Include="imgs\all.png" />
+    <Content Include="imgs\all_a.png" />
+    <Content Include="imgs\appo.png" />
+    <Content Include="imgs\appo1.png" />
+    <Content Include="imgs\arrow_to.png" />
+    <Content Include="imgs\arrow_to2.png" />
+    <Content Include="imgs\attention.png" />
+    <Content Include="imgs\a_yuan.png" />
+    <Content Include="imgs\beautician.png" />
+    <Content Include="imgs\beauty.png" />
+    <Content Include="imgs\beauty2.png" />
+    <Content Include="imgs\bg.png" />
+    <Content Include="imgs\bg2.png" />
+    <Content Include="imgs\cart.png" />
+    <Content Include="imgs\change_reason.png" />
+    <Content Include="imgs\clock_service.png" />
+    <Content Include="imgs\customer_search.png" />
+    <Content Include="imgs\d.png" />
+    <Content Include="imgs\detail1.png" />
+    <Content Include="imgs\dui.png" />
+    <Content Include="imgs\g.png" />
+    <Content Include="imgs\g1.png" />
+    <Content Include="imgs\g1_a.png" />
+    <Content Include="imgs\g2.png" />
+    <Content Include="imgs\g2_a.png" />
+    <Content Include="imgs\g3.png" />
+    <Content Include="imgs\g3_a.png" />
+    <Content Include="imgs\g4.png" />
+    <Content Include="imgs\g4_a.png" />
+    <Content Include="imgs\g5.png" />
+    <Content Include="imgs\g5_a.png" />
+    <Content Include="imgs\g6.png" />
+    <Content Include="imgs\g6_a.png" />
+    <Content Include="imgs\g_a.png" />
+    <Content Include="imgs\home.png" />
+    <Content Include="imgs\home2.png" />
+    <Content Include="imgs\info_edit.png" />
+    <Content Include="imgs\info_edit2.png" />
+    <Content Include="imgs\login_name.png" />
+    <Content Include="imgs\login_password.png" />
+    <Content Include="imgs\logo1.png" />
+    <Content Include="imgs\logo2.png" />
+    <Content Include="imgs\lw.png" />
+    <Content Include="imgs\menu-1.png" />
+    <Content Include="imgs\menu-2.png" />
+    <Content Include="imgs\menu-3.png" />
+    <Content Include="imgs\menu-4.png" />
+    <Content Include="imgs\menu-5.png" />
+    <Content Include="imgs\menu-6.png" />
+    <Content Include="imgs\menu-7.png" />
+    <Content Include="imgs\menu1.png" />
+    <Content Include="imgs\mine.png" />
+    <Content Include="imgs\mine2.png" />
+    <Content Include="imgs\ner1.png" />
+    <Content Include="imgs\ner2.png" />
+    <Content Include="imgs\ner3.png" />
+    <Content Include="imgs\ner4.png" />
+    <Content Include="imgs\ner5.png" />
+    <Content Include="imgs\person.png" />
+    <Content Include="imgs\person_num.png" />
+    <Content Include="imgs\reason_choose.png" />
+    <Content Include="imgs\record.png" />
+    <Content Include="imgs\record1.png" />
+    <Content Include="imgs\record2.png" />
+    <Content Include="imgs\record3.png" />
+    <Content Include="imgs\record_time.png" />
+    <Content Include="imgs\service.png" />
+    <Content Include="imgs\service2.png" />
+    <Content Include="imgs\service_add.png" />
+    <Content Include="imgs\service_total_num.png" />
+    <Content Include="imgs\setting.png" />
+    <Content Include="imgs\setting2.png" />
+    <Content Include="imgs\ss.png" />
+    <Content Include="imgs\star.png" />
+    <Content Include="imgs\success.png" />
+    <Content Include="imgs\s_delete.png" />
+    <Content Include="imgs\time_change.png" />
+    <Content Include="imgs\to_go.png" />
+    <Content Include="imgs\tt.png" />
+    <Content Include="imgs\tu_o.png" />
+    <Content Include="imgs\wechat.png" />
+    <Content Include="imgs\will.png" />
+    <Content Include="imgs\will2.png" />
+    <Content Include="Scripts\api.min.js">
+      <DependentUpon>api.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\common.min.js">
+      <DependentUpon>common.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\aboutus.min.js">
+      <DependentUpon>aboutus.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\appointment.min.js">
+      <DependentUpon>appointment.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\appointments.min.js">
+      <DependentUpon>appointments.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\appointments_completed.js" />
+    <Content Include="Scripts\controller\aboutus.js" />
+    <Content Include="Scripts\controller\appointments_completed.min.js">
+      <DependentUpon>appointments_completed.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\bscan_complete.min.js">
+      <DependentUpon>bscan_complete.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\button_preview.min.js">
+      <DependentUpon>button_preview.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\check.js" />
+    <Content Include="Scripts\controller\check.min.js">
+      <DependentUpon>check.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\button_preview.js" />
+    <Content Include="Scripts\controller\check_anonym.js" />
+    <Content Include="Scripts\controller\check_anonym.min.js">
+      <DependentUpon>check_anonym.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\bscan_complete.js" />
+    <Content Include="Scripts\controller\consumedservice.min.js">
+      <DependentUpon>consumedservice.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\consumedservices.js" />
+    <Content Include="Scripts\controller\consumedservices.min.js">
+      <DependentUpon>consumedservices.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\consumedservice.js" />
+    <Content Include="Scripts\controller\user_add.js" />
+    <Content Include="Scripts\controller\service_purchase.js" />
+    <Content Include="Scripts\controller\service_purchase.min.js">
+      <DependentUpon>service_purchase.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\service_select.js" />
+    <Content Include="Scripts\controller\purchasedservice.js" />
+    <Content Include="Scripts\controller\memo.js" />
+    <Content Include="Scripts\controller\memo.min.js">
+      <DependentUpon>memo.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\purchasedservice.min.js">
+      <DependentUpon>purchasedservice.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\service_select.min.js">
+      <DependentUpon>service_select.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\user.js" />
+    <Content Include="Scripts\controller\customers.min.js">
+      <DependentUpon>customers.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\employees.min.js">
+      <DependentUpon>employees.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\employee_edit.min.js">
+      <DependentUpon>employee_edit.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\error.min.js">
+      <DependentUpon>error.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\foot.min.js">
+      <DependentUpon>foot.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\help.min.js">
+      <DependentUpon>help.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\help_applywechat.min.js">
+      <DependentUpon>help_applywechat.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\help_bindwechat.min.js">
+      <DependentUpon>help_bindwechat.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\help_saloninfo.min.js">
+      <DependentUpon>help_saloninfo.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\home.min.js">
+      <DependentUpon>home.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\login.min.js">
+      <DependentUpon>login.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\profile.js" />
+    <Content Include="Scripts\controller\profile.min.js">
+      <DependentUpon>profile.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\salon.min.js">
+      <DependentUpon>salon.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\salon_edit.min.js">
+      <DependentUpon>salon_edit.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\salon_select.js" />
+    <Content Include="Scripts\controller\help_saloninfo.js" />
+    <Content Include="Scripts\controller\help_bindwechat.js" />
+    <Content Include="Scripts\controller\help_applywechat.js" />
+    <Content Include="Scripts\controller\help.js" />
+    <Content Include="Scripts\controller\salon_select.min.js">
+      <DependentUpon>salon_select.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\service.min.js">
+      <DependentUpon>service.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\services.min.js">
+      <DependentUpon>services.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\service_edit.min.js">
+      <DependentUpon>service_edit.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\setup.min.js">
+      <DependentUpon>setup.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\unavaitime.min.js">
+      <DependentUpon>unavaitime.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\user.min.js">
+      <DependentUpon>user.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controller\user_add.min.js">
+      <DependentUpon>user_add.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\directive.min.js">
+      <DependentUpon>directive.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\filter.min.js">
+      <DependentUpon>filter.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\lib\LCalendar.js" />
+    <Content Include="Scripts\route.js" />
+    <Content Include="Scripts\controller\appointment.js" />
+    <Content Include="Scripts\controller\appointments.js" />
+    <Content Include="Scripts\controller\setup.js" />
+    <Content Include="Scripts\controller\unavaitime.js" />
+    <Content Include="Scripts\controller\service_edit.js" />
+    <Content Include="Scripts\controller\home.js" />
+    <Content Include="Scripts\controller\foot.js" />
+    <Content Include="Scripts\controller\service.js" />
+    <Content Include="Scripts\controller\services.js" />
+    <Content Include="Scripts\controller\salon_edit.js" />
+    <Content Include="Scripts\controller\salon.js" />
+    <Content Include="Scripts\controller\employee_edit.js" />
+    <Content Include="Scripts\controller\employees.js" />
+    <Content Include="Scripts\controller\customers.js" />
+    <Content Include="Scripts\controller\error.js" />
+    <Content Include="Scripts\controller\login.js" />
+    <Content Include="Scripts\api.js" />
+    <Content Include="Scripts\directive.js" />
+    <Content Include="Scripts\filter.js" />
+    <Content Include="Scripts\lib\angular-mocks.js" />
+    <Content Include="Scripts\lib\angular-ui-router.js" />
+    <Content Include="Scripts\lib\angular-ui-router.min.js" />
+    <Content Include="Scripts\lib\angular.js" />
+    <Content Include="Scripts\lib\angular.min.js" />
+    <Content Include="Scripts\route.min.js">
+      <DependentUpon>route.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\service.min.js">
+      <DependentUpon>service.js</DependentUpon>
+    </Content>
+    <Content Include="templates\aboutus.html" />
+    <Content Include="templates\check.html" />
+    <Content Include="templates\button_preview.html" />
+    <Content Include="templates\check_anonym.html" />
+    <Content Include="templates\bscan_complete.html" />
+    <Content Include="templates\consumedservices.html" />
+    <Content Include="templates\consumedservice.html" />
+    <Content Include="templates\header_back_share.html" />
+    <Content Include="templates\dialog_upload_image.html" />
+    <Content Include="templates\user_add.html" />
+    <Content Include="templates\service_purchase.html" />
+    <Content Include="templates\service_select.html" />
+    <Content Include="templates\purchasedservice.html" />
+    <Content Include="templates\memo.html" />
+    <Content Include="templates\user.html" />
+    <Content Include="templates\profile.html" />
+    <Content Include="templates\salon_select.html" />
+    <Content Include="templates\header_back.html" />
+    <Content Include="templates\help_saloninfo.html" />
+    <Content Include="templates\help_bindwechat.html" />
+    <Content Include="templates\help_applywechat.html" />
+    <Content Include="templates\dialog_datepickup.html" />
+    <Content Include="templates\foot.html" />
+    <Content Include="templates\help.html" />
+    <Content Include="templates\services.html" />
+    <Content Include="templates\salon_edit.html" />
+    <Content Include="templates\service.html" />
+    <Content Include="templates\service_edit.html" />
+    <Content Include="templates\appointments_completed.html" />
+    <Content Include="templates\setup.html" />
+    <Content Include="templates\unavaitime.html" />
+    <Content Include="css\manage_style.less" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\lib\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\lib\jquery-3.1.1.js" />
+    <Content Include="Scripts\lib\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\lib\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\lib\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\lib\ngDialog.js" />
+    <Content Include="Scripts\lib\ngDialog.min.js" />
+    <Content Include="Scripts\service.js" />
+    <Content Include="templates\appointment.html" />
+    <Content Include="templates\appointments.html" />
+    <Content Include="templates\dialog_selector.html" />
+    <Content Include="templates\employee_edit.html" />
+    <Content Include="templates\employees.html" />
+    <Content Include="templates\customers.html" />
+    <Content Include="templates\dialog_mention.html" />
+    <Content Include="templates\error.html" />
+    <Content Include="templates\home.html" />
+    <Content Include="templates\login.html" />
+    <Content Include="templates\salon.html" />
+    <Content Include="Scripts\lib\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\lib\jquery-3.1.1.slim.min.map" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\lib\angular.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{7917a184-61a0-4639-90aa-17450894bb5f}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53936</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64402/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

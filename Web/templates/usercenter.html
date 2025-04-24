@@ -1,0 +1,89 @@
+<div class="personal_info">
+    <div class="info_head">
+        <img ng-src="{{user.picture|null:'imgs/no_pic100.jpg'}}" />
+    </div>
+    <div class="info_text">
+        <p class="p1">{{user.nickName|null:"您还未填写昵称"}}</p>
+        <p class="p2">{{user.mobile}}</p>
+        <p>用户ID：{{user.userId}}</p>
+        <p>注册时间：{{user.createdDate.toDateString()}}</p>
+        <!--<p class="p5">账户余额：<span>¥</span>4560</p>-->
+    </div>
+    <div class="info_edit">
+        <a href="#!/user_edit"></a>
+        <img src="imgs/info_edit.png" />
+    </div>
+    <!--<div class="info_edit">-->
+    <!--<a href=""></a>-->
+    <!--<img src="imgs/info_edit2.png" style="float: right;margin-top:20px;"/>-->
+    <!--</div>-->
+</div>
+<div class="personal_done">
+    <ul>
+        <li>
+            <a href="#!/purchasedservices">
+                <div class="done_detail">
+                    <div class="done_detail_icon">
+                        <img src="imgs/cart.png" />
+                    </div>
+                    <div class="done_detail_name">
+                        <p>购买的服务</p>
+                    </div>
+                    <div class="done_detail_to">
+                        <img src="imgs/arrow_to.png" />
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <div class="done_detail">
+                <div class="done_detail_icon">
+                    <img src="imgs/d.png" />
+                </div>
+                <div class="done_detail_name">
+                    <p>预约记录</p>
+                </div>
+                <div class="done_detail_to">
+                    <img src="imgs/arrow_to.png" />
+                </div>
+                <a class="done_detail_href" href="#!/appointments"></a>
+            </div>
+        </li>
+        <li>
+            <a href="#!/consumecode">
+                <div class="done_detail">
+                    <div class="done_detail_icon">
+                        <img src="imgs/tubiao_erwm.png">
+                    </div>
+                    <div class="done_detail_name">
+                        <p>我的消费码</p>
+                    </div>
+                    <div class="done_detail_to">
+                        <img src="imgs/arrow_to.png">
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#!/receipts">
+                <div class="done_detail">
+                    <div class="done_detail_icon">
+                        <img src="imgs/tubiao_tz.png">
+                    </div>
+                    <div class="done_detail_name">
+                        <p>消费单</p>
+                    </div>
+                    <div class="done_detail_to">
+                        <img src="imgs/arrow_to.png">
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<!--<div class="wechat_contact">
+    <a href="wechat.html">
+        <img src="imgs/wechat.png" /></a>
+    <p>我的二维码</p>
+</div>-->
+<div class="footer_menu" ng-controller="foot" ng-include="footTemplate"></div>

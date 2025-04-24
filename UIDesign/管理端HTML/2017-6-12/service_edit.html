@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑服务</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/branch.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="person_info service_info_edit">
+        <ul style="margin-bottom:100px;">
+            <li class="person">
+                <div class="person_info_left xan_mu">
+                    <p>项目图片</p>
+                </div>
+                <div class="xan_mu_tu">
+                    <img src="imgs/tu_o.png"/>
+                </div>
+                <i class="to_chose to2"></i>
+            </li>
+            <p class="border_bg"></p>
+            <li>
+                <div class="person_info_left">
+                    <p>项目名称</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="">
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>项目类别</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="美白祛斑" readonly>
+                    <i class="to_chose"></i>
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>疼痛指数</p>
+                </div>
+                <div class="person_info_right pain_star">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i class="to_chose"></i>
+                </div>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>服务时长</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="50">
+                </div>
+                <span class="per_name">分钟</span>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>美丽周期</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" id="rest_time" type="text" value="5">
+                </div>
+                <span class="per_name">天</span>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>单次价格</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="900">
+                </div>
+                <span class="per_name">元/次</span>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>套餐价格</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="1300">
+                </div>
+                <span class="per_name">元/疗程</span>
+            </li>
+            <li>
+                <div class="person_info_left">
+                    <p>每次疗程</p>
+                </div>
+                <div class="person_info_right">
+                    <input class="input_edit" type="text" value="5">
+                </div>
+                <span class="per_name">次</span>
+            </li>
+            <p class="border_bg"></p>
+            <li class="area_edit_li">
+                <p class="area_edit_title">美容功效</p>
+                <textarea class="input_edit area_edit">淡化斑点、改善肤色、祛黄祛黑、抗衰嫩肤、增加皮肤、弹性和光泽。</textarea>
+            </li>
+            <p class="border_bg"></p>
+            <li class="area_edit_li">
+                <p class="area_edit_title">适用对象</p>
+                <textarea class="input_edit area_edit">1.油脂分泌过盛、易形成粉刺型皮肤；2.毛孔粗大、有黑头型皮肤；</textarea>
+            </li>
+            <p class="border_bg"></p>
+            <li class="area_edit_li">
+                <p class="area_edit_title">服务详情</p>
+                <textarea class="input_edit area_edit">1.油脂分泌过盛、易形成粉刺型皮肤；2.毛孔粗大、有黑头型皮肤；</textarea>
+            </li>
+            <p class="border_bg"></p>
+            <li class="person">
+                <div class="person_info_left xan_mu">
+                    <p>效果展示<span class="add_show_pic">添加</span></p>
+                </div>
+                <div class="xan_mu_tu2">
+                    <ul>
+                        <li>
+                            <img src="imgs/tu_o.png"/>
+                            <i class="del_icon">×</i>
+                        </li>
+                        <li>
+                            <img src="imgs/tu_o.png"/>
+                            <i class="del_icon">×</i>
+                        </li>
+                        <li>
+                            <img src="imgs/tu_o.png"/>
+                            <i class="del_icon">×</i>
+                        </li>
+                        <li>
+                            <img src="imgs/tu_o.png"/>
+                            <i class="del_icon">×</i>
+                        </li>
+                    </ul>
+                </div>
+                <i class="to_chose to2"></i>
+            </li>
+        </ul>
+    </div>
+    <div class="person_info_sub">
+        <p>提交</p>
+    </div>
+    <div class="fileMask"></div>
+    <!--选择修改 Start-->
+    <div class="picker-modal">
+        <p class="picker-item-s"><span class="picker_not_sure">取消</span><span class="picker_sure">确定</span></p>
+        <div class="picker-item picker-selected" picker-value="1">1</div>
+        <div class="picker-item" picker-value="2">2</div>
+        <div class="picker-item picker-selected" picker-value="3">3</div>
+        <div class="picker-item" picker-value="4">4</div>
+        <div class="picker-item" picker-value="5">5</div>
+    </div>
+    <!--选择修改 End-->
+    <script src="js/picker.js"></script>
+</body>
+</html>

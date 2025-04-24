@@ -1,0 +1,9 @@
+<div class="content">
+    <div class="cut" ng-style="divCutCSS"></div>
+    <img id="oimg" class="oimg" style="position:fixed" ng-src="{{base64Image}}" ng-load="imgLoaded()" />
+    <canvas id="canvas" style="display: none"></canvas>
+</div>
+<div class="toolBar">
+    <a ng-click="cancel()">取消</a>
+    <a ng-click="cut()">确定</a>
+</div>

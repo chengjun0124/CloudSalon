@@ -1,0 +1,65 @@
+<div class="already_service_bg">
+    <a href="#!/service/{{service.serviceId}}">
+        <div class="already_service">
+            <div class="purchased_service_list_des">
+                <div class="purchased_service_list_img">
+                    <img ng-src="{{service.smallSubjectImage}}" />
+                </div>
+                <div class="purchased_service_list_txt">
+                    <p class="purchased_service_list_title">
+                        {{service.serviceName}}
+                    </p>
+                    <p class="state_price"><span ng-if="service.oncePrice!=null"><span class="price_icon">¥</span>{{service.oncePrice}}<span class="price_degree">/单次</span>&nbsp;</span><span ng-if="service.treatmentPrice!=null"><span class="price_icon">¥</span>{{service.treatmentPrice}}<span class="price_degree">/疗程</span></span></p>
+                    <p>服务类型：{{service.serviceTypeName}}</p>
+                    <p>服务时长：{{service.duration}}分钟</p>
+                    
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="beautician">
+    <div class="beautician_choose">
+        <p class="beautician_choose_title">
+            <img src="imgs/beautician.png" /><span>预约技师</span>
+        </p>
+        <ul class="inner">
+            <li ng-repeat="b in avaiAppointments.beauticians" ng-click="selectBeautician(b)">
+                <p class="beautician_pic">
+                    <img ng-src="{{b.picture|null:'imgs/no_pic130.jpg'}}" ng-class="{'beautician_pic_selected':selectedBeautician==b,'beautician_pic':selectedBeautician!=b}" />
+                </p>
+                <p class="beautician_name">{{b.nickName}}</p>
+                <p class="beautician_work">服务 <span>{{b.servedCount}}次</span></p>
+            </li>
+        </ul>
+        <div class="beautician_day_off" ng-if="avaiAppointments==null">暂无技师可选择</div>
+    </div>
+</div>
+<div class="clock_day">
+    <div class="clock_day_list">
+        <ul>
+            <li ng-repeat="day in avaiAppointments.beauticians[0].avaiDates" ng-class="{'week_current':selectedDate==day}" ng-click="selectDate(day)">
+                <p class="clock_day_list_week">{{day.date|date:"EEE"|toCNWeek}}</p>
+                <p>{{day.date|todate}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="clock_day_time">
+        <ul ng-show="!isSalonClose && !isBeauticianDayoff">
+            <li ng-repeat="t in times" ng-class="{'time_already':!t.isAvailable,'time_current':selectedTime==t}" ng-click="selectTime(t)">
+                <p class="clock_day_time_top">{{t.time.hour.toStringWithPrefix(2)}}:{{t.time.minute.toStringWithPrefix(2)}}</p>
+                <p ng-if="t.isAvailable">可预约</p>
+                <p ng-if="!t.isAvailable">不可约</p>
+            </li>
+        </ul>
+        <div class="clock_day_off" ng-if="isSalonClose">该日期美容院不营业</div>
+        <div class="clock_day_off" ng-if="isBeauticianDayoff">该日期美容师休息</div>
+    </div>
+</div>
+<div class="service_detail_footer">
+    <a class="service_detail_footer_href" ng-click="appoint()"></a>
+    <div class="service_detail_footer_center">
+        <img src="imgs/clock_service.png" style="margin: 2px 0 0 20px;">
+        <span style="margin: 0 10px 0 10px;">预约</span>
+    </div>
+</div>

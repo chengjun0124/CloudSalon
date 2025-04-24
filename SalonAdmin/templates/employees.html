@@ -1,0 +1,35 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div id="subhead" need-placeholder>
+    <div>
+        <img src="imgs/service_total_num.png" />
+        <span>共{{employeeCount}}位员工</span>
+    </div>
+    <div class="right">
+        <a href="#!/employee_edit/">
+            <img src="imgs/service_add.png" />
+            <span>新增</span>
+        </a>
+    </div>
+</div>
+<div class="list" load-more="loadMore()" top="155" bottom="0" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="e in employees">
+            <a href="#!/employee_edit/{{e.employeeId}}" class="container col3">
+                <div class="col_3">
+                    <img class="shrink_87" ng-src="{{e.smallPicture|null:'imgs/no_pic130.jpg'}}" />
+                </div>
+                <div class="col_6">
+                    <p>{{e.nickName}}</p>
+                    <p>职位：{{e.userTypeId|toUserType}}</p>
+                    <p>今日预约：{{e.todayAppointmentCount}}</p>
+                    <p>本月服务：{{e.monthCompletedAppointmentCount}}</p>
+                </div>
+                <div class="col_3">                    
+                    <span class="tag bgc_blue fc_white">{{workStatus(e)}}</span>
+                    <span ng-click="deleteEmployee($event,e.employeeId,$index)" class="tag bgc_pink fc_white">删&nbsp;&nbsp;除</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<no-data data="employees"></no-data>

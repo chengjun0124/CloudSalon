@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>惠美丽</title>
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="mobileOptimized" content="width">
+    <meta name="handheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="none_data">
+        <img src="imgs/none_data.png"/>
+    </div>
+    <div class="footer_menu">
+        <ul>
+            <li>
+                <div class="menu-pic"><a href="appointment.html"><img src="imgs/will2.png"></a></div>
+                <div class="menu-name"><a href="appointment.html">预约</a></div>
+            </li>
+            <li>
+                <div class="menu-pic"><a href="index.html"><img src="imgs/beauty.png"></a></div>
+                <div class="menu-name active"><a href="index.html">惠美丽</a></div>
+            </li>
+            <li>
+                <div class="menu-pic"><a href="person_center.html"><img src="imgs/mine2.png"></a></div>
+                <div class="menu-name"><a href="person_center.html">我的</a></div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(".top_menu").find("li").each(function(){
+            var _this=$(this);
+            _this.click(function(){
+                _this.siblings().find(".menu-name").attr("class","menu-name");
+                _this.siblings().find("[class^=m]").removeClass("active");
+                _this.find(".menu-name").addClass("active");
+                _this.find("[class^=m]").addClass("active");
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div class="confirmset_con">
+    <ul>
+        <li>
+            <p><span>
+                <img src="imgs/tubiao_server_h.png" style="vertical-align: -10%;"></span><span style="color: #999999; font-size: 28px;"> 服务项目：</span><span style="font-size: 28px;">{{consumedService.serviceName}}</span></p>
+        </li>
+        <li>
+            <p><span>
+                <img src="imgs/beautician.png" style="vertical-align: -10%;"></span><span style="color: #999999; font-size: 28px;"> 服务技师：</span><span style="vertical-align: -310%; text-align: center"><img ng-src="{{consumedService.employeePicture|null:'imgs/no_pic130.jpg'}}"></span></p>
+            <p class="confirmset_con_name">{{consumedService.employeeNickName}}</p>
+        </li>
+        <li ng-if="consumedService.appointmentDate!=null">
+            <p><span>
+                <img src="imgs/tubiao_yuyue.png" style="vertical-align: -10%;"></span><span style="color: #999999; font-size: 28px;"> 预约时间：</span><span style="font-size: 28px;">{{consumedService.appointmentDate.format("YYYY-MM-dd hh:mm")}}</span></p>
+            <p style="text-indent: 13px; padding-bottom: 10px;"><span style="color: #999999; font-size: 28px;">预约状态：</span><span style="font-size: 28px;">{{consumedService.appointmentStatusId|toAppointmentStatus}}</span></p>
+        </li>
+    </ul>
+</div>
+<div class="confirmset_modify">
+    <div class="confirmset_modify_u">
+        <img src="imgs/tagging01.png" style="vertical-align: -30%;">
+        本次扣除：<span style="color: #e42f2f;">{{consumedService.time}}</span> 次</div>
+    <div class="confirmset_modify_x">
+        <p>扣除原因：{{consumedService.changeTimeReason}}</p>
+        <p>到店方式：{{consumedService.appointmentDate==null?"非在线预约":"在线预约"}}</p>
+    </div>
+</div>
+<div class="service_detail_operate" ng-if="consumedService.consumedServiceStatusId==1">
+    <ul>
+        <li class="op1" ng-click="changeStatus(2)">
+            <div class="service_detail_footer_operate buy_confirm_btn receipt_btn">
+                确定
+            </div>
+        </li>
+        <li class="op2" ng-click="changeStatus(4)">
+            <div class="service_detail_footer_operate">
+                拒绝
+            </div>
+        </li>
+    </ul>
+</div>

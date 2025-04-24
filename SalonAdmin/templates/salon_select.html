@@ -1,0 +1,13 @@
+<div>
+    <img class="shrink_500" src="imgs/choose_top_bg.png" />
+</div>
+<div class="list nohr big">
+    <ul>
+        <li class="ta_c">请选择您要进入的店铺</li>
+        <li ng-repeat="authSalon in authSalons" ng-click="selectSalon(authSalon.jwt)" class="container">
+            <div class="col_5 ta_c"><img class="shrink_140" ng-src="{{authSalon.smallPicture|null:'imgs/no_pic210.jpg'}}" /></div>
+            <div class="col_6">{{authSalon.salonName}}</div>
+            <div class="col_1 ta_r"><img src="imgs/to_choose_shop.png" /></div>
+        </li>
+    </ul>
+</div>

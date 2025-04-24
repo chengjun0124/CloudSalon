@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="angular/jquery-1.11.1.min.js"></script>
+    <title></title>
+    <style>
+        body{
+            overflow:hidden
+        }
+    </style>
+
+    <script>
+        var canvas = canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        var canvasWidth = 200;
+        var canvasHeight = 100;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        var sWidth = canvasWidth;
+        var sHeight = canvasHeight;
+        var containerWidth = 650;
+        var containerHeight = 550;
+        var imgLeft = 0;
+        var imgTop = 0;
+        var imgMoveLeft = 0;
+        var imgMoveTop = 0;
+
+        function cut() {
+
+            var img1 = document.getElementById("img1");
+            var img2 = document.getElementById("img2");
+
+            sWidth = 600 / img1.width * canvasWidth;
+            sHeight = 480 / img1.height * canvasHeight;
+
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            //600 is Original Img Width
+            var count = (img1.width - 600) / 30;
+            var isZoomIn;
+            if (count > 0)
+                isZoomIn = true;
+            else {
+                count = count * -1;
+                isZoomIn = false;
+            }
+
+            var originalImgLeft = imgMoveLeft;
+            var originalImgTop = imgMoveTop;
+            var temp = 0;
+            var temp2 = 0;
+
+            var total = 0;
+            var total2 = 0;
+
+            var ImgHeight = 480;
+
+            for (var i = 0; i < count; i++) {
+
+                //此算法是向右zoomin的算法，还是有点不精准，我需要中间向四周扩散的zoomin效果，并且此算法是能用于此效果
+                if (isZoomIn) {
+                    originalImgLeft = originalImgLeft - temp;
+                    temp = 30 / (600 + (i * 30)) * originalImgLeft;
+                }
+                else {
+                    originalImgLeft = originalImgLeft + temp;
+                    temp = 30 / (600 - (i * 30)) * originalImgLeft;
+                }
+
+
+                total = total + temp;
+                total = parseInt(total);
+
+
+                var heightScale = 24;
+                if (isZoomIn) {
+                    originalImgTop = originalImgTop - temp2;
+                    temp2 = heightScale / (480 + (i * 24)) * originalImgTop;
+                }
+                else {
+                    originalImgTop = originalImgTop + temp2;
+                    temp2 = heightScale / (480 - (i * 24)) * originalImgTop;
+                }
+                total2 = total2 + temp2;
+                total2 = parseInt(total2);
+            }
+
+            if (isZoomIn) {
+                total *= -1;
+                total2 *= -1;
+            }
+
+            ctx.drawImage(img1, imgMoveLeft + total, imgMoveTop + total2, sWidth, sHeight, 0, 0, canvasWidth, canvasHeight);
+
+
+
+            var dataURL = canvas.toDataURL("image/jpeg");
+
+            img2.src = dataURL;
+
+
+
+
+        }
+
+        function zoom(e) {
+            var scale = 30;
+
+            if (e.detail == -3) {
+                img1.width += scale;
+                //imgLeft -= scale / 2;
+                //imgTop -= 24 / 2;
+            }
+            else {
+                img1.width -= scale;
+                //imgLeft += scale / 2;
+                //imgTop += 24 / 2;
+
+            }
+            $("#img1").css({ left: imgLeft, top: imgTop });
+            cut();
+        }
+        function locateImg() {
+            var containerBorderAndPaddingLeft = (div_container.outerWidth() - div_container.width()) / 2;
+            var containerBorderAndPaddingTop = (div_container.outerHeight() - div_container.height()) / 2;
+
+            var containerLeft = div_container.position().left + containerBorderAndPaddingLeft;
+            var containerTop = div_container.position().top + containerBorderAndPaddingTop;
+
+            imgLeft = (containerWidth - $("#img1").width()) / 2;
+            imgTop = (containerHeight - $("#img1").height()) / 2;
+            imgLeft = imgLeft + containerLeft;
+            imgTop = imgTop + containerTop;
+
+            $("#img1").css({ left: imgLeft, top: imgTop });
+        }
+    </script>
+</head>
+<body>
+    <div id="div_mention"></div>
+    <div id="div_container" style="margin:0 auto;border:1px solid gray;">
+        <img id="img1" src="2.jpg" style="position:absolute;opacity:100;" onload="locateImg()" />
+    </div>
+    <div id="div_clipper" style="border:1px solid black;position:absolute;"></div>
+    
+
+    <br />
+    <img id="img2" />
+
+        <button onclick="cut()">Cut</button>
+    
+    <script>
+        document.getElementById("img1").addEventListener('DOMMouseScroll', zoom, false);
+        $("#div_container").css({ width: containerWidth, height: containerHeight });
+
+        var div_container = $("#div_container");
+
+        //locate clipper
+        var containerBorderAndPaddingLeft = (div_container.outerWidth() - div_container.width()) / 2;
+        var containerBorderAndPaddingTop = (div_container.outerHeight() - div_container.height()) / 2;
+
+        var containerLeft = div_container.position().left + containerBorderAndPaddingLeft;
+        var containerTop = div_container.position().top + containerBorderAndPaddingTop;
+
+        var clipperLeft, clipperTop;
+        clipperLeft = (containerWidth - canvasWidth) / 2;
+        clipperTop = (containerHeight - canvasHeight) / 2;
+        clipperLeft += containerLeft;
+        clipperTop += containerTop;
+        $("#div_clipper").css({ width: canvasWidth, height: canvasHeight, left: clipperLeft, top: clipperTop });
+        //end locate clipper
+
+
+        imgMoveLeft = ($("#img1").width() - canvasWidth) / 2;
+        imgMoveTop = ($("#img1").height() - canvasHeight) / 2;
+
+
+        $("#img1").on("mousedown", function (e) {
+            $('#img1')[0].setCapture();
+            var originX = e.clientX;
+            var originY = e.clientY;
+
+
+            window.onmousemove = function (e) {
+                $('#img1').css({
+                    left: imgLeft + e.clientX - originX + 'px',
+                    top: imgTop + e.clientY - originY + 'px'
+                });
+            };
+
+            window.onmouseup = function (e) {
+                imgLeft = imgLeft + e.clientX - originX;
+                imgTop = imgTop + e.clientY - originY;
+
+                imgMoveLeft = imgMoveLeft - (e.clientX - originX);
+                imgMoveTop = imgMoveTop - (e.clientY - originY);
+
+                $('#img1')[0].releaseCapture();
+                window.onmousemove = null;
+                window.onmouseup = null;
+
+                cut();
+            }
+        });
+
+    </script>
+</body>
+    
+</html>

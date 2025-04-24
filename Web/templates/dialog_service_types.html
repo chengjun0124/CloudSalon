@@ -1,0 +1,10 @@
+<div class="menu_tc_top" ng-class="{'active':selectedType==serviceTypes[0]}" ng-click="selectType(serviceTypes[0])">
+    <span>
+        <img ng-src="imgs/all{{selectedType==serviceTypes[0]?'_a':''}}.png"></span><br>
+    全部分类
+</div>
+<ul>
+    <li ng-repeat="type in serviceTypes|filter:excludeAll" ng-click="selectType(type)">
+        <img ng-src="imgs/service_type{{type.serviceTypeId}}{{selectedType==type?'_a':''}}.png"><span ng-class="{'active':selectedType==type}">{{type.serviceTypeName}}</span></li>
+    </li>
+</ul>

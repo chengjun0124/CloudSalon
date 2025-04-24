@@ -1,0 +1,47 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div id="subhead_user" class="container col3" need-placeholder>
+    <div class="col_2">
+        <img class="circle shrink_67" ng-src="{{user.picture|null:'imgs/no_pic100.jpg'}}">
+    </div>
+    <div class="col_9 fc_white">
+        <p class="fc_white">{{user.nickName}}</p>
+        <p>姓&#12288&#12288名：{{user.name}}</p>
+        <p ng-if="userTypeId!=5">手&#12288&#12288机：{{user.mobile|asteriskMobile}}</p>
+        <p ng-if="userTypeId==5">手&#12288&#12288机：{{user.mobile}}</p>
+        <p>注册时间：{{user.createdDate.format("YYYY-MM-dd")}}</p>
+        <p><a href="#!/memo/{{userId}}">备&#12288&#12288注：{{user.memo}}</a></p>
+    </div>
+    <div class="col_1">
+        <a href="#!/memo/{{userId}}">
+            <img class="shrink_18" src="imgs/tubiao_bianji.png">
+        </a>
+    </div>
+</div>
+<div id="subhead" need-placeholder>
+    <div>
+        <img class="shrink_15" src="imgs/tubiao_list1.png">
+        已购服务
+    </div>
+    <div class="fc_grey">共{{purchasedServiceCount}}项</div>
+</div>
+<div class="list" load-more="loadMore()" top="379" bottom="95" page-size="PAGESIZE" data="dataForLoadMore">
+    <ul>
+        <li ng-repeat="ps in purchasedServices">
+            <a href="#!/purchasedservice/{{ps.purchasedServiceId}}/{{userId}}" class="container col3">
+                <div class="col_4">
+                    <img class="subject" ng-src="{{ps.smallSubjectImage|null:'imgs/no_pic210.jpg'}}">
+                </div>
+                <div class="col_8">
+                    <p>{{ps.serviceName}}</p>
+                    <p>服务次数：<span ng-if="ps.time!=null">{{ps.time}}次&nbsp;剩余：{{getRemainTime(ps)}}次</span><span ng-if="ps.time==null">无限制</span></p>
+                    <p>最后一次服务：{{getLastConsumedDate(ps.consumedServices)}}</p>
+                    <p>服务技师：{{getLastConsumedEmployeeNickName(ps.consumedServices)}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<no-data data="purchasedServices"></no-data>
+<div id="foot_button" need-placeholder>
+    <a class="fc_blue" href="#!/service_select/{{userId}}">购买服务</a>
+</div>

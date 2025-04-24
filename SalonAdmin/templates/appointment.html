@@ -1,0 +1,32 @@
+<div id="head" need-placeholder ng-include="headerBackTemplate"></div>
+<div id="content">
+    <p class="fc_grey">
+        <img src="imgs/tt.png" style=""><span>&nbsp;订单编号：{{appointment.appointmentId}}</span>
+    </p>
+    <p>{{appointment.serviceName}}</p>
+    <p>预约时间：{{appointment.appointmentDate.format("YYYY-MM-dd hh:mm")}}</p>
+    <p>预约技师：{{appointment.nickName}}</p>
+    <p>
+        预约状态：<span class="appointment_status" ng-class="{'pending':appointment.appointmentStatusId==1,'success':appointment.appointmentStatusId==3,'reject':appointment.appointmentStatusId==2,'cancel':appointment.appointmentStatusId==5||appointment.appointmentStatusId==6,'completed':appointment.appointmentStatusId==4}">{{appointment.appointmentStatusId|toAppointmentStatus}}</span>
+    </p>
+    <hr />
+    <p class="center">
+        <img class="circle" ng-src="{{appointment.userPicture|null:'imgs/no_pic100.jpg'}}" />
+    </p>
+    <p class="center" ng-if="userTypeId!=5">顾客：{{appointment.mobile|asteriskMobile}}</p>
+    <p class="center" ng-if="userTypeId==5">顾客：{{appointment.mobile}}</p>
+    <p class="center fc_grey">下单时间：{{appointment.createdDate.format("YYYY-MM-dd hh:mm")}}</p>
+</div>
+<!--<div class="appointment_in">
+    <p>到店时间：1月1日 10:30</p>
+    <p>服务结束：--月--日  --:--</p>
+    <p>服务技师：</p>
+</div>-->
+
+<div id="foot_button" need-placeholder ng-if="appointment.appointmentStatusId!=4">
+    <a ng-if="appointment.appointmentStatusId==1" class="fc_red" ng-click="changeStatus(3)">确认预约</a>
+    <a ng-if="appointment.appointmentStatusId==1" class="fc_green" ng-click="changeStatus(2)">拒绝预约</a>
+    <a ng-if="appointment.appointmentStatusId==3" class="fc_red" ng-click="changeStatus(6)">取消预约</a>
+    <a ng-if="appointment.appointmentStatusId==3 && (userTypeId==2||(appointment.employeeId==userId&&isBeautician==true))" class="fc_green" ng-click="scan()">扫码结账</a>
+    <a ng-if="appointment.appointmentStatusId==5 || appointment.appointmentStatusId==2||appointment.appointmentStatusId==6" class="fc_red" href="tel:{{appointment.mobile}}">联系用户</a>
+</div>
